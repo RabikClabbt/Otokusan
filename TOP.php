@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="css" href="./css/style.css">
 </head>
 <body>
+    
 <?php
 echo '<div class="region">';
     echo '<div class="ho">';
