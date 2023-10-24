@@ -13,7 +13,6 @@
         <img src="image/mentaiko.jpg" alt="商品画像">
         <i>商品名</i><br>
         <i>値段と送料</i>
-
     </div>
     <label for="quantity">数量:</label>
     <select id="quantity" name="quantity">
@@ -28,10 +27,10 @@
     <a href="購入ページのURL">購入する</a>
     <p>商品説明</p>
     <i>商品情報</i><br>     
-    <i>商品名称</i>　<i>上見ろ</i><br>     
-    <i>原材料</i>　　<i>？</i><br>     
-    <i>賞味期限</i>　<i>昨日</i><br>     
-    <i>配送方法</i>　<i>投げ配</i><br>     
+    <i>商品名称  上見ろ</i><br>     
+    <i>原材料    ？</i><br>     
+    <i>賞味期限  昨日</i><br>     
+    <i>配送方法  投げ配</i><br>     
 
     <h2>お支払いについて</h2>
     <i>・クレジットカード決済</i><br>
