@@ -1,6 +1,59 @@
 .region {
-    background-color: transparent; /* ボタンの背景を透明にする */
-    border: none; /* ボーダーを削除 */
-    cursor: pointer; /* ボタンにカーソルを表示 */
-    opacity: 0.5; /* 透過度を設定（0.0から1.0の範囲で設定、0.0は完全に透明、1.0は不透明） */
+    position: relative;
+}
+    
+.ho {
+    width:200px;
+    position: relative;
+    left: 750px; /* 左端からの位置を0に設定 */
+    top: 10px; /* 上端からの位置を0に設定 */
+}
+
+.to {
+    position: relative;
+    left: 770px;
+    top: -10px;
+    width:200px;
+}
+
+.kan {
+    position: relative;
+    left:785px;
+    top: -20px;
+    width:200px;
+}
+
+.tyu {
+    position: relative;
+    left: 580px;
+    top: -260px;
+    width:200px;
+}
+
+.kik {
+    position: relative;
+    left: 490px;
+    top: -480px;
+    width:200px;
+}
+
+.tyugo {
+    position: relative;
+    left: 340px;
+    top: -730px;
+    width:130px;
+}
+
+.siko {
+    position: relative;
+    left: 350px;
+    top: -730px;
+    width:130px;
+}
+
+.kyusy {
+    position: relative;
+    left: 140px;
+    top: -990px;
+    width:200px;
 }
