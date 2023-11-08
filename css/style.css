@@ -65,6 +65,11 @@ _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
     width:200px;
 }
 
+.rink{
+    width: 700px;
+    margin: 10px 300px;
+}
+
 a{
     text-decoration: none;
 }
