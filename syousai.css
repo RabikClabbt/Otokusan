@@ -40,12 +40,14 @@ i {
 /* 数量選択 */
 label {
   display: block;
-  margin-top: 10px;
+  text-align: center;
+  margin-right: 10px;
 }
 
 select {
-  width: 100px;
+  width: 140px;
   padding: 5px;
+  margin-left: 550px;
 }
 
 /* ボタンスタイル */
@@ -53,7 +55,7 @@ a {
   display: block;
   text-align: center;
   background-color: #ea7c0e;
-  color: #fff;
+  color: #fff;/* 文字色 */
   padding: 20px;
   text-decoration: none;
   margin-top: 10px;
