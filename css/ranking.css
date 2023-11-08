@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    float: left; /* ロゴを左に浮動させる */
+}
+
+.header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.ad {
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 20px; /* adの上下に余白を追加 */
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+.ranking {
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.ranking-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rproduct {
+    width: 48%;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-right: 20px; /* 商品と商品の間に右側の余白を追加 */
+}
+
+
+.rproduct-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.rproduct:last-child {
+    margin-right: 0; /* 最後の商品には余白を追加しない */
+}
+
+.rproduct img {
+    width: 50%; /* 画像の幅を50%に設定（親要素の幅の半分）*/
+    height: auto; /* 高さは自動調整 */
+}
+
+.rproduct .product-description {
+    flex: 1; /* 説明文が残りのスペースを占めるようにする */
+    padding: 20px; /* 説明文の内側の余白を設定 */
+    box-sizing: border-box;
+}
+
+
+.rproduct-name {
+    background-color: #f2f2f2;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+}
