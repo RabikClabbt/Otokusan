@@ -1,6 +1,6 @@
 <?php session_start(); ?>
-<?php require 'header.php';?>
-<?php require 'db-connect.php';?>
+<?php require 'Header.php';?>
+<?php require 'Db-connect.php';?>
 <link rel="stylesheet" href="css/style.css">
 <?php
   $pdo=new PDO($connect,USER,PASS);
@@ -24,12 +24,16 @@
     echo '<form method="post" action=".php">';
       echo '<label for="mail">E-mail</label>';
       echo '<input type="text" id="mail" value="',$mail,'" required>';
+      echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
+    echo '</form>';
 
     echo '<form method="post" action=".php">';
       echo '<label for="pass">パスワード</label>';
       echo '<input type="text" id="pass" value="',$pass,'" required>';
+      echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
+    echo '</form>';
 
     echo '<form method="post" action=".php">';
       echo '<label for="region">所在地域</label>';
@@ -39,8 +43,8 @@
           echo '<option value="',$row['prefecturesNo'],'">',$row['prefecturesName'],'</option>';
         }
       echo '</select>';
-          
-      echo '<input type="submit" name="update" value="登録">';
+      echo '<input type="submit" name="update" value="更新">';
+    echo '</form>';      
     
   }
 
@@ -73,4 +77,4 @@
   }
   
 ?>
-<?php require 'footer.php';?>
+<?php require 'Footer.php';?>
