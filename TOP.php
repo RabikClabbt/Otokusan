@@ -44,7 +44,7 @@
         echo '</div>';
         ?>
         <h2 id="hokkaido">北海道</h2>
-        <a href= "hokkaido.html" >北海道</a>
+        <a href= "hokkaido.html" >北海道1</a>
         <h2 id="tohoku">東北地方</h2>
         <a href= "hokkaido.html" >青森県</a>
         <a href= "hokkaido.html" >秋田県</a>
