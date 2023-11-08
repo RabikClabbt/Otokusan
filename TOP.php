@@ -1,3 +1,6 @@
+<?php require 'header.php'; ?>
+<?php require 'sideber.php'; ?>
+<?php require 'db-connect.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -57,6 +60,43 @@
         <a href= "hokkaido.html" >東京都</a>
         <a href= "hokkaido.html" >千葉県</a>
         <a href= "hokkaido.html" >神奈川県</a>
-
+        <h2 id="tyubu">中部地方</h2>
+        <a href= "hokkaido.html" >新潟県</a>
+        <a href= "hokkaido.html" >山梨県</a>
+        <a href= "hokkaido.html" >静岡県</a>
+        <a href= "hokkaido.html" >長野県</a>
+        <a href= "hokkaido.html" >岐阜県</a>
+        <a href= "hokkaido.html" >愛知県</a>
+        <a href= "hokkaido.html" >富山県</a>
+        <a href= "hokkaido.html" >石川県</a>
+        <a href= "hokkaido.html" >福井県</a>
+        <h2 id="kinki">近畿地方</h2>
+        <a href= "hokkaido.html" >三重県</a>
+        <a href= "hokkaido.html" >滋賀県</a>
+        <a href= "hokkaido.html" >京都府</a>
+        <a href= "hokkaido.html" >大阪府</a>
+        <a href= "hokkaido.html" >兵庫県</a>
+        <a href= "hokkaido.html" >奈良県</a>
+        <a href= "hokkaido.html" >和歌山県</a>
+        <h2 id="tyugoku">中国地方</h2>
+        <a href= "hokkaido.html" >鳥取県</a>
+        <a href= "hokkaido.html" >島根県</a>
+        <a href= "hokkaido.html" >岡山県</a>
+        <a href= "hokkaido.html" >広島県</a>
+        <a href= "hokkaido.html" >山口県</a>
+        <h2 id="sikoku">四国地方</h2>
+        <a href= "hokkaido.html" >愛媛県</a>
+        <a href= "hokkaido.html" >高知県</a>
+        <a href= "hokkaido.html" >徳島県</a>
+        <a href= "hokkaido.html" >香川県</a>
+        <h2 id="kyusyu">九州・沖縄地方</h2>
+        <a href= "hokkaido.html" >福岡県</a>
+        <a href= "hokkaido.html" >佐賀県</a>
+        <a href= "hokkaido.html" >長崎県</a>
+        <a href= "hokkaido.html" >熊本県</a>
+        <a href= "hokkaido.html" >大分県</a>
+        <a href= "hokkaido.html" >宮崎県</a>
+        <a href= "hokkaido.html" >鹿児島県</a>
+        <a href= "hokkaido.html" >沖縄県</a>
     </body>
 </html>

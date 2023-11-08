@@ -1,7 +1,14 @@
 .region {
     position: relative;
 }
-    
+
+_:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
+    width:200px;
+    position: relative;
+    left: 750px; /* 左端からの位置を0に設定 */
+    top: 10px; /* 上端からの位置を0に設定 */
+  }
+
 .ho {
     width:200px;
     position: relative;
@@ -56,4 +63,8 @@
     left: 140px;
     top: -990px;
     width:200px;
+}
+
+a{
+    text-decoration: none;
 }
