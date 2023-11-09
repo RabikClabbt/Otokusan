@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="css/style.css">
 <?php
   $pdo=new PDO($connect,USER,PASS);
-  $name=$mail=$pass=$region='';
+  $name=$mail=$pass=$region=$zipcord='';
 
   if(isset($_SESSION['customer'])){
     $name=$_SESSION['customer']['name'];
@@ -12,6 +12,7 @@
         $mail=$_SESSION['customer']['mail'];
         $pass=$_SESSION['customer']['pass'];
         $region=$_SESSION['customer']['region'];
+        $zipcord=$_SESSION['customer']['zipcord'];
     $sql=$pdo->query('select *from prefectures');
       echo '<h1>アカウント情報</h1>';
     echo '<form method="post" action=".php">';
@@ -36,16 +37,25 @@
     echo '</form>';
 
     echo '<form method="post" action=".php">';
+      echo '<label for="zipcord">郵便番号</label>';
+      echo '<input type="text" id="zipcord" value="',$zipcord,'">';
+      echo '<input type="submit" name="update" value="更新">';
+      echo '<br>';
+    echo '</form>';
+
+    echo '<form method="post" action=".php">';
       echo '<label for="region">所在地域</label>';
       echo '<p>',$region,'</p>';
       echo '<select id="region" name="region" required>';
         foreach($sql as $row){
-          echo '<option value="',$row['prefecturesNo'],'">',$row['prefecturesName'],'</option>';
+          echo '<option value="',$row['regionID'],'">',$row['prefecturesName'],'</option>';
         }
       echo '</select>';
       echo '<input type="submit" name="update" value="更新">';
-    echo '</form>';      
-    
+    echo '</form>';
+
+    echo '<a href="Delete.php">アカウント削除</a>';
+    echo '<a href="TOP.php">TOPへ</a>';
   }
 
   else{
@@ -58,19 +68,23 @@
       echo '<br>';
 
       echo '<label for="mail">E-mail</label>';
-      echo '<input type="text" id="mail" value="',$mail,'" required>';
+      echo '<input type="text" id="mail" value="',$email,'" required>';
       echo '<br>';
 
       echo '<label for="pass">パスワード</label>';
-      echo '<input type="text" id="pass" value="',$pass,'" required>';
+      echo '<input type="text" id="pass" value="',$password,'" required>';
       echo '<br>';
 
       echo '<label for="region">所在地</label>';
       echo '<select id="region" name="region" required>';
         foreach($sql as $row){
-          echo '<option value="',$row['prefecturesNo'],'">',$row['prefecturesName'],'</option>';
+          echo '<option value="',$row['regionID'],'">',$row['prefecturesName'],'</option>';
         }
       echo '</select>';
+
+      echo '<label for="zipcord">郵便番号</label>';
+      echo '<input type="text" id="zipcord" value="',$zipcord,'">';
+      echo '<br>';
           
       echo '<input type="submit" name="insert" value="登録">';
     echo '</form>';
