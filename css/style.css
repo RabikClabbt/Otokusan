@@ -1,0 +1,71 @@
+.region {
+
+    position: relative;
+}
+
+_:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
+    width:200px; /* 左から画像を押す範囲の判定設定 */
+    position: relative;
+    left: 750px; /* 左端からの位置を0に設定 */
+    top: 10px; /* 上端からの位置を0に設定 */
+  }
+
+.ho {
+    width:200px; /* 左から画像を押す範囲の判定設定 */
+    position: relative;
+    left: 750px; /* 左端からの位置を0に設定 */
+    top: 10px; /* 上端からの位置を0に設定 */
+}
+
+.to {
+    position: relative;
+    left: 770px;
+    top: -10px;
+    width:200px;
+}
+
+.kan {
+    position: relative;
+    left:785px;
+    top: -20px;
+    width:200px;
+}
+
+.tyu {
+    position: relative;
+    left: 580px;
+    top: -260px;
+    width:200px;
+}
+
+.kik {
+    position: relative;
+    left: 490px;
+    top: -480px;
+    width:200px;
+}
+
+.tyugo {
+    position: relative;
+    left: 340px;
+    top: -730px;
+    width:130px;
+}
+
+.siko {
+    position: relative;
+    left: 350px;
+    top: -730px;
+    width:130px;
+}
+
+.kyusy {
+    position: relative;
+    left: 140px;
+    top: -990px;
+    width:200px;
+}
+
+a{
+    text-decoration: none;
+}
