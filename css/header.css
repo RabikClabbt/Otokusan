@@ -1,7 +1,15 @@
 /* styles.css */
 header {
+    width: 100%;
+    box-sizing: border-box;
     background-color: #f8f8f8;
     padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -16,20 +24,55 @@ header {
     max-height: 50px;
 }
 
+.logo {
+    margin-right: 10px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search input[type="text"] {
+    width: 300px;
+}
+
+.search button {
+    margin-left: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    width: 400px;
+}
+
+.search-button {
+    margin-left: -37px; /* ボタンを入力フィールド内に移動させる */
+    z-index: 1; /* ボタンを手前に表示するために必要な場合に追加してください */
+    height: 35px;
+    background: none; /* 背景をなくす */
+    border: none; /* 枠をなくす */
+    padding: 0; /* パディングをリセット */
+}
+
+
 .search input {
     padding: 5px;
     border: none;
     border-radius: 5px;
 }
 
-.search a img {
-    max-height: 30px;
-    margin-left: 10px;
-}
-
 .right {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
+    float: right;
 }
 
 .right a,
@@ -47,4 +90,46 @@ header {
     cursor: pointer;
 }
 
-/* サイドバーのスタイルはここに追加する */
+.left, .right {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.guti{
+    /* I would like to see Kota work a little harder as a leader. */
+    /* I hope sumi is not too proud. */
+}
+
+/* サイドバーボタン */
+.bar {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: #333; /* バツ印の色 */
+    transition: 0.4s; /* アニメーションの速度 */
+}
+
+.bar:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.bar:nth-child(2) {
+    opacity: 0;
+}
+
+.bar:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.sidebar-toggle.active .bar:nth-child(1) {
+    transform: rotate(0deg) translate(0px, 6px);
+}
+
+.sidebar-toggle.active .bar:nth-child(2) {
+    opacity: 1;
+}
+
+.sidebar-toggle.active .bar:nth-child(3) {
+    transform: rotate(0deg) translate(0px, -6px);
+}
