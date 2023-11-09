@@ -1,17 +1,18 @@
-.region {
 
+.region {
     position: relative;
+    height: 900px;
 }
 
 _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
-    width:200px; /* 左から画像を押す範囲の判定設定 */
+    width:200px;
     position: relative;
     left: 750px; /* 左端からの位置を0に設定 */
     top: 10px; /* 上端からの位置を0に設定 */
   }
 
 .ho {
-    width:200px; /* 左から画像を押す範囲の判定設定 */
+    width:200px;
     position: relative;
     left: 750px; /* 左端からの位置を0に設定 */
     top: 10px; /* 上端からの位置を0に設定 */
@@ -73,4 +74,10 @@ _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
 
 a{
     text-decoration: none;
+}
+
+h2.anchor{
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
 }
