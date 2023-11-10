@@ -1,9 +1,18 @@
 <?php require 'db-connect.php' ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<link rel ="stylesheet" href = "css/ex1.css">
+</head>
+<body>
+<h1>検索結果</h1>
 <?php
     $pdo=new PDO($connect,USER,PASS);
 
-        $str='select * from product as p inner join productgenre as pg on p.productID = pg.productID where';
+        $str='select * from product as p inner join productgenre as pg on p.productID = pg.productID inner join prefectures as pf on p.prefecturesNo = pf.prefecturesNo where';
         $count=0;
+        $i=0;
         $keyArray=array();
 
     if(strlen($_POST['sname'])>0){
@@ -14,10 +23,10 @@
 
 if($_POST['region']!=0){
         if($count==0){
-            $str = $str.' prefecturesNo=?';
+            $str = $str.' regionID=?';
         }
         else{
-            $str = $str.'or'.' prefecturesNo=?';
+            $str = $str.'and'.' regionID=?';
         }
     switch($_POST['region']){
         case 1:
@@ -60,7 +69,7 @@ if($_POST['category']!=0){
             $str = $str.' genreID=?';
         }
         else{
-            $str = $str.'or'.' genreID=?';
+            $str = $str.'and'.' genreID=?';
         }
     switch($_POST['category']){
         case 01:
@@ -79,7 +88,7 @@ if($_POST['price']!=0){
             $str = $str.' price between ? and ?';
         }
         else{
-            $str = $str.'or'.' price between ? and ?';
+            $str = $str.'and'.' price between ? and ?';
         }
     switch($_POST['price']){
         case 'price1':
@@ -120,14 +129,19 @@ if($_POST['price']!=0){
 
     if($sql->rowCount()>0){
         echo '<table>';
-        echo '<tr><th>商品ID</th><th>商品名</th><th>価格</th></tr>';
+        echo '<th></th><th></th><th></th><th></th>';
+        echo '<tr>';
         foreach($sql as $row){
-            echo '<tr>';
-            echo '<td>',$row['productID'],'</td>';
-            echo '<td>',$row['productName'],'</td>';
-            echo '<td>',$row['price'],'</td>';
+            echo '<td>';
+            echo '<img src="',$row['imgPass'],'.jpg" height="170">';
+            echo '<br>';
+            echo $row['productName'];
+            echo '</td>';
+            $i+=1;
+        if($i%4==0){
             echo '</tr>';
-            echo "\n";
+            echo '<tr>';
+            }
         }
         echo '</table>';
     }
@@ -136,3 +150,5 @@ if($_POST['price']!=0){
         echo '<p>','条件の変更を行ってください。','</p>';
     }
 ?>
+</body>
+</html>
