@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<link rel ="stylesheet" href = "css/ex1.css">
+<link rel ="stylesheet" href = "css/result.css">
 </head>
 <body>
 <h1>検索結果</h1>
@@ -13,6 +13,7 @@
         $str='select * from product as p inner join productgenre as pg on p.productID = pg.productID inner join prefectures as pf on p.prefecturesNo = pf.prefecturesNo where';
         $count=0;
         $i=0;
+        $page=0;
         $keyArray=array();
 
     if(strlen($_POST['sname'])>0){
@@ -128,12 +129,14 @@ if($_POST['price']!=0){
     }
 
     if($sql->rowCount()>0){
-        echo '<table>';
+        echo '<table align="center">';
         echo '<th></th><th></th><th></th><th></th>';
         echo '<tr>';
         foreach($sql as $row){
             echo '<td>';
-            echo '<img src="',$row['imgPass'],'.jpg" height="170">';
+            echo '<a href="#">'; //遷移するページの指定
+            echo '<img src="',$row['imgPass'],'.jpg" height="170">'; //商品画像の表示
+            echo '</a>';
             echo '<br>';
             echo $row['productName'];
             echo '</td>';
@@ -142,6 +145,10 @@ if($_POST['price']!=0){
             echo '</tr>';
             echo '<tr>';
             }
+        if($i%20==0){
+            $page+=1;
+            echo '<a href="Result.php">',$page,'</a>';
+        }
         }
         echo '</table>';
     }
