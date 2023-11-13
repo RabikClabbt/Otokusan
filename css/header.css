@@ -1,4 +1,4 @@
-/* styles.css */
+/* ヘッダースタイル */
 header {
     width: 100%;
     box-sizing: border-box;
@@ -7,6 +7,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10; /* ヘッダーの z-index を設定 */
 }
 
 .header {
@@ -61,7 +62,6 @@ header {
     padding: 0; /* パディングをリセット */
 }
 
-
 .search input {
     padding: 5px;
     border: none;
@@ -73,6 +73,7 @@ header {
     justify-content: flex-end;
     align-items: center;
     float: right;
+    z-index: 10; /* 右側の要素にも z-index を設定 */
 }
 
 .right a,
@@ -98,38 +99,4 @@ header {
 .guti{
     /* I would like to see Kota work a little harder as a leader. */
     /* I hope sumi is not too proud. */
-}
-
-/* サイドバーボタン */
-.bar {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 20px;
-    background-color: #333; /* バツ印の色 */
-    transition: 0.4s; /* アニメーションの速度 */
-}
-
-.bar:nth-child(1) {
-    transform: rotate(45deg);
-}
-
-.bar:nth-child(2) {
-    opacity: 0;
-}
-
-.bar:nth-child(3) {
-    transform: rotate(-45deg);
-}
-
-.sidebar-toggle.active .bar:nth-child(1) {
-    transform: rotate(0deg) translate(0px, 6px);
-}
-
-.sidebar-toggle.active .bar:nth-child(2) {
-    opacity: 1;
-}
-
-.sidebar-toggle.active .bar:nth-child(3) {
-    transform: rotate(0deg) translate(0px, -6px);
 }
