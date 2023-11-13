@@ -5,6 +5,6 @@
     <p>アカウント未登録の方は、「アカウント作成」から登録してください。</p>
 <input type="submit" value="ログイン">
 </form>
-<a href="Account-input.php">TOPへ</a>
+<a href="Account-input.php">アカウント作成</a>
 <a href="TOP.php">戻る</a>
 <?php require 'Footer.php';?>
