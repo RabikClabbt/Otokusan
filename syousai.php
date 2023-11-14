@@ -9,44 +9,34 @@
 <body>
 <?php require 'db-connect.php';?>
     <header>ロゴ</header>
+    <?php
+$pdo = new PDO($connect, USER, PASS);
+/*if (isset($_GET['productID'])) {*/
+    $id = 26;
+    $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
+    $sql->execute([$id]);
+        foreach ($sql as $row) {
+        echo '<p><img alt="image" src="image/', $row['imgPass'], '.jpg"></p>';
+        echo '<p>商品番号:', $row['productID'], '</p>';
+        echo '<p>商品名:', $row['productName'], '</p>';
+        echo '<p>価格:', $row['price'], '</p>';
 
-    <div>
-        <img src="image/mentaiko.jpg" alt="商品画像">
+        echo '<form action="カートページのURL" method="post">';
+        echo '<p>個数:<select name="count">';
+        for ($i = 1; $i < 10; $i++) {
+            echo '<option value="' , $i , '">' , $i , '</option>';
+        }
+        echo '</select></p>';
+        echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
+        echo '<input type="hidden" name="name" value="' . $row['productName'] . '">';
+        echo '<input type="hidden" name="price" value="' . $row['price'] . '">';
+        echo '<p><input type="submit" value="カートに追加"></p>';
+        echo '</form>';
+        echo '<p><a href="favorite-insert.php?id=', $row['id'], '">お気に入りに追加</a></p>';
+    }
+/*}*/
 
-        <i>商品名</i><br>
-        <i>値段+送料</i>
-    </div>
-    <label for="quantity">数量</label>
-    <select class="suryou" name="suryou">
-        <option value="">選択してください</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-    </select>
-    <a href="カートページのURL">カートに入れる</a>
-    <a href="購入ページのURL">購入する</a>
-    
-    <i>商品説明</i>
-    <table>
-        <tr>
-            <td><i>商品概要</i></td>
-        </tr>
-        <tr>
-            <td><i>商品名称　　上見ろ</i></td>
-        </tr>
-        <tr>
-            <td><i>原材料　　　？</i></td>
-        </tr>
-        <tr>
-            <td><i>賞味期限　　昨日</i></td>
-        </tr>
-        <tr>
-            <td><i>配送方法　　投げ配</i></td>
-        </tr>
-    </table>
-
+?>
     <div style="background:lavender;  display:table;  width:100%;">
     <div style="background:skyblue; display:table-cell;">
     <h2>お支払いについて</h2>
@@ -62,6 +52,5 @@
 </div>
 </div>
 <a href="商品一覧URL">商品一覧へ</a>
-
 </body>
 </html>
