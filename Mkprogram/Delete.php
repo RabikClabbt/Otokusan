@@ -1,12 +1,10 @@
 <?php session_start(); ?>
-<?php require 'header.php';?>
-<?php require 'menu.php';?>
+<?php require 'Header.php';?>
+<?php require 'Db-connect.php';?>
 <?php
-if (isset($_SESSION['customer'])){
-    unset($_SESSION['customer']);
-    echo 'ログアウトしました。';
-}else{
-    echo 'すでにログアウトしています。';
-}
+    $pdo=new PDO($connect,USER,PASS);
+    $sql=$pdo->prepare('delete * from account where memberID=?');
+    $sql->execute([$_SESSION['customer']['memberID']]);
+    echo 'アカウントを削除しました。';
 ?>
-<?php require 'footer.php';?>
+<?php require 'Footer.php';?>
