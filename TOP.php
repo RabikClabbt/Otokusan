@@ -57,7 +57,7 @@
         </script>
     </head>
     <body>
-        <h1>ーーーー地域から探すーーーー</h1>
+        <h1 class="tiiki">ーーーー地域から探すーーーー</h1>
         <?php
         echo '<div class="region">';
             echo '<div class="ho">';
@@ -94,6 +94,7 @@
             echo '</div>';
         echo '</div>';
         ?>
+        <h1 class="ken">ーーーー気になった都道府県を選んでくださいーーーー</h1>
         <div class="rink">
             <h2 id="hokkaido" class="anchor">北海道</h2>
             
