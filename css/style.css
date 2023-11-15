@@ -1,7 +1,16 @@
+h1 {
+    color:#b8860b;
+    position: relative;
+    width: 500px;
+    left: 400px;
+}
 
 .region {
     position: relative;
-    height: 900px;
+    width: 900px;
+    height: 800px;
+    left: 200px;
+    border: 2px solid #b8860b;
 }
 
 _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
@@ -14,55 +23,55 @@ _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
 .ho {
     width:200px;
     position: relative;
-    left: 750px; /* 左端からの位置を0に設定 */
+    left: 630px; /* 左端からの位置を0に設定 */
     top: 10px; /* 上端からの位置を0に設定 */
 }
 
 .to {
     position: relative;
-    left: 770px;
+    left: 650px;
     top: -10px;
     width:200px;
 }
 
 .kan {
     position: relative;
-    left:785px;
+    left:665px;
     top: -20px;
     width:200px;
 }
 
 .tyu {
     position: relative;
-    left: 580px;
+    left: 460px;
     top: -260px;
     width:200px;
 }
 
 .kik {
     position: relative;
-    left: 490px;
+    left: 370px;
     top: -480px;
     width:200px;
 }
 
 .tyugo {
     position: relative;
-    left: 340px;
+    left: 220px;
     top: -730px;
     width:130px;
 }
 
 .siko {
     position: relative;
-    left: 350px;
+    left: 230px;
     top: -730px;
     width:130px;
 }
 
 .kyusy {
     position: relative;
-    left: 140px;
+    left: 20px;
     top: -990px;
     width:200px;
 }
