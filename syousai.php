@@ -33,15 +33,20 @@ $pdo = new PDO($connect, USER, PASS);
         echo '</form>';
         echo '<p><a href="購入画面のURL?id=', $row['productID'], '">購入画面へ</a></p>';
 
-        echo '<>商品説明<br>';
+        echo '<i>商品説明</i><br><br><i>さっさと金払え</i>';
+
         echo '<table> <tr><th>商品概要</th></tr>';
         echo '<tr><td>商品名称　　上見ろ</td></tr>';
+        echo '<tr><td>原材料　　　？</td></tr>';
+        echo '<tr><td>賞味期限　　昨日</td></tr>';
+        echo '<tr><td>配送方法　　投げ配</td></tr>';
+        echo '</table>';
     }
 /*}*/
 
 ?>
     <div style="background:lavender;  display:table;  width:100%;">
-    <div style="background:white; display:table-cell;">
+    <div style="background:lightbrown; display:table-cell;">
     <h2>お支払いについて</h2>
     <h2>オンライン決済</h2>
     <i>・クレジットカード</i><br>
@@ -49,7 +54,7 @@ $pdo = new PDO($connect, USER, PASS);
     <i>対応店舗</i><br><i>・</i><br>
     <h2>・代金引換</h2><br>
 </div>
-    <div style="background:brown;  display:table-cell; text-align:right;">
+    <div style="background:beige;  display:table-cell; text-align:right;">
     <h2>返品・交換について</h2>
     <i>未使用・未開封のみ可</i><br>
 </div>
