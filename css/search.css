@@ -1,0 +1,55 @@
+h1{
+    text-align: center;
+}
+.text{
+    display: flex;
+    justify-content: center;
+    height:30px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+.table{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 20px;
+}
+.table td{
+    padding: 30px;
+}
+
+.drop {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.drop::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.drop select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    font-size: 30px;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: none;
+    border-bottom: 2px solid #b7c9d7;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.drop select:focus {
+    outline: none;
+}

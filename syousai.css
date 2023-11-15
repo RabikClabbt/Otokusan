@@ -15,13 +15,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-header {
-  text-align: center;
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
-}
-
 /* 商品情報のスタイル */
 img {
   max-width: 50%;

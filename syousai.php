@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php require 'db-connect.php';?>
-    <header>ロゴ</header>
+<?php require 'Header.php';?>
     <?php
 $pdo = new PDO($connect, USER, PASS);
 /*if (isset($_GET['productID'])) {*/
@@ -17,7 +17,6 @@ $pdo = new PDO($connect, USER, PASS);
     $sql->execute([$id]);
         foreach ($sql as $row) {
         echo '<p><img alt="image" src="image/', $row['imgPass'], '.jpg"></p>';
-        echo '<p>商品番号:', $row['productID'], '</p>';
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
@@ -32,13 +31,17 @@ $pdo = new PDO($connect, USER, PASS);
         echo '<input type="hidden" name="price" value="' . $row['price'] . '">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
-        echo '<p><a href="favorite-insert.php?id=', $row['id'], '">お気に入りに追加</a></p>';
+        echo '<p><a href="購入画面のURL?id=', $row['productID'], '">購入画面へ</a></p>';
+
+        echo '<>商品説明<br>';
+        echo '<table> <tr><th>商品概要</th></tr>';
+        echo '<tr><td>商品名称　　上見ろ</td></tr>';
     }
 /*}*/
 
 ?>
     <div style="background:lavender;  display:table;  width:100%;">
-    <div style="background:skyblue; display:table-cell;">
+    <div style="background:white; display:table-cell;">
     <h2>お支払いについて</h2>
     <h2>オンライン決済</h2>
     <i>・クレジットカード</i><br>
@@ -46,7 +49,7 @@ $pdo = new PDO($connect, USER, PASS);
     <i>対応店舗</i><br><i>・</i><br>
     <h2>・代金引換</h2><br>
 </div>
-    <div style="background:orange;  display:table-cell; text-align:right;">
+    <div style="background:brown;  display:table-cell; text-align:right;">
     <h2>返品・交換について</h2>
     <i>未使用・未開封のみ可</i><br>
 </div>
