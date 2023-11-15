@@ -14,35 +14,35 @@
         $password=$_SESSION['customer']['password'];
     $sql=$pdo->query('select *from prefectures');
       echo '<h1>アカウント情報</h1>';
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<label for="memberName">氏名</label>';
       echo '<input type="text" id="memberName" value="',$memberName,'" required>';
       echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
     echo '</form>';
 
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<label for="email">E-mail</label>';
       echo '<input type="text" id="email" value="',$email,'" required>';
       echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
     echo '</form>';
 
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<label for="password">パスワード</label>';
       echo '<input type="text" id="password" value="',$password,'" required>';
       echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
     echo '</form>';
 
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<label for="zipcord">郵便番号</label>';
       echo '<input type="text" id="zipcord" value="',$zipcord,'">';
       echo '<input type="submit" name="update" value="更新">';
       echo '<br>';
     echo '</form>';
 
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<label for="regionID">所在地域</label>';
       echo '<p>',$regionID,'</p>';
       echo '<select id="regionID" name="regionID" required>';
@@ -53,13 +53,14 @@
       echo '<input type="submit" name="update" value="更新">';
     echo '</form>';
 
+    echo '<a href="Logout.php">ログアウト</a>';
     echo '<a href="Delete.php">アカウント削除</a>';
     echo '<a href="TOP.php">TOPへ</a>';
   }
 
   else{
     $sql=$pdo->query('select *from prefectures');
-    echo '<form method="post" action=".php">';
+    echo '<form method="post" action="Account-output.php">';
       echo '<h1>アカウント登録</h1>';
 
       echo '<label for="memberName">氏名</label>';

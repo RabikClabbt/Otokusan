@@ -22,4 +22,4 @@ if(isset($_SESSION['customer'])){
     echo 'ログイン名またはパスワードが違います。';
 }
 ?>
-<?php require 'footer.php';?>
+<?php require 'Footer.php';?>

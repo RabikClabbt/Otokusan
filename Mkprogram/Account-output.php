@@ -22,6 +22,7 @@ if (isset($_SESSION['customer'])){
             'zipcord'=>$_POST['zipcord'], 'regionID'=>$_POST['regionID'], 'email'=>$_POST['email'],
             'password'=>password_hash($_POST['password'],PASSWORD_DEFAULT)];
         echo 'お客様情報を更新しました。';
+        echo '<a href="Account-input.php">戻る</a>';
         } else {
             $sql=$pdo->prepare('insert into account values (null,?,?,?,?,?)');
             $sql->execute([
@@ -29,8 +30,11 @@ if (isset($_SESSION['customer'])){
             $_POST['regionID'], $_POST['email'], password_hash($_POST['password'],PASSWORD_DEFAULT)]);
             echo 'お客様情報を登録しました。';
         }
+        echo '<a href="TOP.php">TOPへ</a>';
     } else {
         echo 'ログイン名がすでに使用されていますので、変更してください';
+        echo '<a href="Account-input.php">戻る</a>';
     }
+
 ?>
 <?php require 'Footer.php'; ?>
