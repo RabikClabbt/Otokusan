@@ -1,4 +1,13 @@
-<?php require 'db-connect.php'; ?>
+<?php require 'Header.php';?>
+<?php
+
+    const SERVER = 'mysql218.phy.lolipop.lan';
+    const DBNAME = 'LAA1517467-mock';
+    const USER = 'LAA1517467';
+    const PASS = '0tokusan';
+
+    $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -12,7 +21,6 @@
 <body>
     <div class="header">
     <div class="area" style="height: 60px; display: flex; flex-direction: column; justify-content: left; align-items: left;">
-    <img src="./image/otokusan.png" alt="ロゴの説明文" width="100" style="float: left;">
 
     北海道エリア　　　　　北海道１
 </div>
@@ -55,28 +63,40 @@
 
     <div class="ranking">
         商品一覧
-<?php
-     echo '<table>';
-     echo '<tr> <th>商品番号</th> <th>商品名</th><th>価格</th> </tr>'; 
-    // 既存のdb-connect.phpファイルで定義された接続情報を使用して$pdo変数を初期化します
+        <?php
+
+try {
     $pdo = new PDO($connect, USER, PASS);
-    // prefecturesNoが01の商品情報を取得するSQLクエリ
-    $sql = "SELECT * FROM product WHERE prefecturesNo = '01'";
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    echo '<table>';
+    echo '<tr> <th>商品番号</th><th>写真</th><th>商品名</th><th>価格</th> </tr>';
+
+    $sql = "SELECT p.*, pr.prefecturesName FROM product p
+            JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo
+            WHERE p.prefecturesNo = '01'";
     $stmt = $pdo->query($sql);
 
-       
-        $sql=$pdo->query('select * from product');
-        foreach ($sql as $row) {
-            $id=$row['productID'];
+    // クエリの実行が成功した場合のみ foreach ループを実行
+    if ($stmt !== false) {
+        foreach ($stmt as $row) {
+            $id = $row['prefecturesName']; // 商品番号を取得
             echo '<tr>';
             echo '<td>', $id, '</td>';
+            echo '<td><img src="', $row['imgPass'], '" alt="', $row['productName'], 'の写真"></td>';
             echo '<td>';
             echo '<a href="detail.php?id=', $id, '">', $row['productName'], '</a>';
             echo '</td>';
             echo '<td>', $row['price'], '</td>';
             echo '</tr>';
         }
-        echo '</table>';
-        ?>
-</body>
-</html>
+    } else {
+        echo "Error: クエリの実行に失敗しました。";
+    }
+
+    echo '</table>';
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+
