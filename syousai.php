@@ -11,10 +11,9 @@
 <?php require 'Header.php';?>
     <?php
 $pdo = new PDO($connect, USER, PASS);
-/*if (isset($_GET['productID'])) {*/
-    $id = 26;
+if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
-    $sql->execute([$id]);
+    $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
         echo '<p><img alt="image" src="image/', $row['imgPass'], '.jpg"></p>';
         echo '<p>商品名:', $row['productName'], '</p>';
@@ -31,8 +30,9 @@ $pdo = new PDO($connect, USER, PASS);
         echo '<input type="hidden" name="price" value="' . $row['price'] . '">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
-        echo '<p><a href="購入画面のURL?id=', $row['productID'], '">購入画面へ</a></p>';
-
+        echo '<form action="購入画面のURL" method="post">';
+        echo '<p><input type="submit" value="購入画面へ"></p>';
+        echo '</form>';
         echo '<i>商品説明</i><br><br><i>さっさと金払え</i>';
 
         echo '<table> <tr><th>商品概要</th></tr>';
@@ -42,7 +42,7 @@ $pdo = new PDO($connect, USER, PASS);
         echo '<tr><td>配送方法　　投げ配</td></tr>';
         echo '</table>';
     }
-/*}*/
+}
 
 ?>
     <div style="background:lavender;  display:table;  width:100%;">
