@@ -40,7 +40,7 @@
 
                     // Change color for the selected region
                     var regionHeading = document.getElementById(regionId);
-                    regionHeading.style.color = "red";
+                    regionHeading.style.color = "maroon";
             }
 
             /*function changeColor(regionId) {
@@ -60,6 +60,15 @@
         <h1 class="tiiki">ーーーー地域から探すーーーー</h1>
         <?php
         echo '<div class="region">';
+            echo '<div class="taiyo">';
+                echo '<img src="gahaku/taiyo.png" class="ugokikaiten animation">';
+            echo '</div>';
+            echo '<div class="hikouki">';
+                echo '<img src="gahaku/hikouki2.png" class="ugokinaname animation">';
+            echo '</div>';
+            echo '<div class="tori">';
+                echo '<img src="gahaku/tori.png" class="ugokitate animation">';
+            echo '</div>';
             echo '<div class="ho">';
                 echo '<a href="#hokkaido" onclick="changeANDscrollToElement(\'hokkaido\', 1000)"><img src="image/Hokkaido.png"></a>';
                 /*echo '<input type="image" name="ho" src="image/Hokkaido.png"  alt="ho" value="ho">';*/
