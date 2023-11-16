@@ -1,16 +1,17 @@
-h1 {
+h1.tiiki {
     color:#b8860b;
     position: relative;
     width: 500px;
-    left: 400px;
+    margin: 0 auto;
 }
 
 .region {
     position: relative;
+    background-image: url("../image/haikei02.png");
+    background-size: cover;
     width: 900px;
     height: 800px;
-    left: 200px;
-    border: 2px solid #b8860b;
+    margin: 0 auto;
 }
 
 _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
@@ -78,11 +79,18 @@ _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
 
 .rink{
     width: 700px;
-    margin: 10px 300px;
+    margin: 10px auto;
 }
 
 a{
     text-decoration: none;
+}
+
+h1.ken {
+    color:#b8860b;
+    position: relative;
+    width: 900px;
+    margin: 0 auto;
 }
 
 h2.anchor{
