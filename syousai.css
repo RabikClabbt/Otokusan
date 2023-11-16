@@ -68,12 +68,13 @@ table {
 
 table, th, td {
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid black；
 }
 
 th, td {
   padding: 8px;
   text-align: center;
+  border: 1px solid black；
 }
 
 th {
