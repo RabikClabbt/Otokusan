@@ -16,7 +16,7 @@ body {
 }
 
 /* 商品情報のスタイル */
-img {
+img:not(#header,.menubtn,#g-nav){
   max-width: 50%;
   height: auto;
   display: block;
@@ -30,21 +30,27 @@ i {
   margin-top: 10px;
 }
 
+p{
+display:block;
+text-align:center;
+}
 /* 数量選択 */
+select {
+  padding: 8px; /* セレクトボックスの内部余白 */
+  font-size: 16px; /* フォントサイズ */
+  border: 1px solid #ccc; /* 境界線のスタイル */
+  border-radius: 5px; /* 角丸 */
+}
+
 label {
   display: block;
   text-align: center;
-  margin-right: 10px;
+  margin-bottom: 8px; /* ラベルとセレクトボックスの間の余白 */
 }
 
-select {
-  width: 140px;
-  padding: 5px;
-  margin-left: 550px;
-}
 
 /* ボタンスタイル */
-a {
+a:not(#header,.menubtn,#g-nav) {
   display: block;
   text-align: center;
   background-color: #ea7c0e;
@@ -54,14 +60,32 @@ a {
   margin-top: 10px;
 }
 
-a:hover {
+a:hover:not(#header,.menubtn,#g-nav) {
   background-color: #ea7c0e;
 }
 
 form{
-
-
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
 }
+
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
 /* 商品説明スタイル */
 table {
   width: 100%;
@@ -88,21 +112,14 @@ h2 {
   text-align: center;
 }
 
-/* 対応店舗のスタイル */
-i {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-}
-
 /* ページ遷移リンクのスタイル */
-a[href="商品一覧のURL"] {
+a[href="商品一覧のURL"]:not(#header,.menubtn,#g-nav) {
   display: inline-block;
   margin-top: 20px;
   text-decoration: none;
   color: #3498db; /* リンク色を変更 */
 }
 
-a[href="商品一覧のURL"]:hover {
+a[href="商品一覧のURL"]:hover:not(#header,.menubtn,#g-nav) {
   text-decoration: underline;
 }
