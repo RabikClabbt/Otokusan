@@ -20,6 +20,8 @@ if(isset($_SESSION['customer'])){
     echo 'いらっしゃいませ、',$_SESSION['customer']['memberName'],'さん。';
 }else {
     echo 'ログイン名またはパスワードが違います。';
+    echo '<a href="Login-input.php">戻る</a>';
 }
+    echo '<a href="TOP.php">TOPへ</a>';
 ?>
 <?php require 'Footer.php';?>
