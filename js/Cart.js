@@ -4,9 +4,11 @@ new Vue({
         cartItems: <?php echo json_encode($cartItems); ?>
     },
     methods: {
-        updateQuantity(productId) {
-            const cartItem = this.cartItems.find(item => item.product_id === productId);
-            const newQuantity = cartItem.quantity;
+        updateQuantity(productId, newQuantity) {
+            // Vueデータを更新
+            const cartItem = this.cartItems.find(item => item.productID === productId);
+            cartItem.quantity = newQuantity;
+
             // バックエンドへ数量を更新するためのAJAXリクエストを送信
             fetch('update_quantity.php', {
                 method: 'POST',
@@ -28,6 +30,9 @@ new Vue({
             });
         },
         removeFromCart(productId) {
+            // Vueデータからアイテムを削除
+            this.cartItems = this.cartItems.filter(item => item.productID !== productId);
+
             // バックエンドへアイテムをカートから削除するためのAJAXリクエストを送信
             fetch('remove_from_cart.php', {
                 method: 'POST',
