@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php require 'db-connect.php' ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,7 +14,8 @@
         $str='select * from product as p inner join productgenre as pg on p.productID = pg.productID inner join prefectures as pf on p.prefecturesNo = pf.prefecturesNo where';
         $count=0;
         $i=0;
-        $page=0;
+        $shohincount=0;
+        $startpage=1;
         $keyArray=array();
 
     if(strlen($_POST['sname'])>0){
@@ -27,7 +29,7 @@ if($_POST['region']!=0){
             $str = $str.' regionID=?';
         }
         else{
-            $str = $str.'and'.' regionID=?';
+            $str = $str.' and'.' regionID=?';
         }
     switch($_POST['region']){
         case 1:
@@ -70,7 +72,7 @@ if($_POST['category']!=0){
             $str = $str.' genreID=?';
         }
         else{
-            $str = $str.'and'.' genreID=?';
+            $str = $str.' and'.' genreID=?';
         }
     switch($_POST['category']){
         case 01:
@@ -89,7 +91,7 @@ if($_POST['price']!=0){
             $str = $str.' price between ? and ?';
         }
         else{
-            $str = $str.'and'.' price between ? and ?';
+            $str = $str.' and'.' price between ? and ?';
         }
     switch($_POST['price']){
         case 'price1':
@@ -120,12 +122,25 @@ if($_POST['price']!=0){
     }
 }
 
+    //検索結果数を取得
     if($count>0){
         $sql=$pdo->prepare($str);
         $sql->execute($keyArray);
+        foreach($sql as $row){
+            $shohincount+=1;
+        }
     }
     else{
-        $sql=$pdo->query('select * from product as p inner join productgenre as pg on p.productID = pg.productID');
+        $shohincount = $sql=$pdo->query('select * from product as p inner join productgenre as pg on p.productID = pg.productID')->rowCount();
+    }
+
+
+    if($count>0){
+        $sql=$pdo->prepare($str.' order by p.productID limit 0,20');
+        $sql->execute($keyArray);
+    }
+    else{
+        $sql=$pdo->query('select * from product as p inner join productgenre as pg on p.productID = pg.productID order by p.productID limit 0,20;');
     }
 
     if($sql->rowCount()>0){
@@ -134,7 +149,7 @@ if($_POST['price']!=0){
         echo '<tr>';
         foreach($sql as $row){
             echo '<td>';
-            echo '<a href="#">'; //遷移するページの指定
+            echo '<a href="#">'; //商品詳細画面への遷移指定
             echo '<img src="',$row['imgPass'],'.jpg" height="170">'; //商品画像の表示
             echo '</a>';
             echo '<br>';
@@ -145,10 +160,6 @@ if($_POST['price']!=0){
             echo '</tr>';
             echo '<tr>';
             }
-        if($i%20==0){
-            $page+=1;
-            echo '<a href="Result.php">',$page,'</a>';
-        }
         }
         echo '</table>';
     }
@@ -156,6 +167,41 @@ if($_POST['price']!=0){
         echo '<p>','該当する商品が見つかりませんでした。','</p>';
         echo '<p>','条件の変更を行ってください。','</p>';
     }
+
+    if($shohincount>20){
+    $lastpage = ceil($shohincount/20);
+    for($startpage;$startpage<=$lastpage;$startpage++){
+        if($startpage==1){
+            echo '<div class="page">';
+            echo '<div class="current">';
+        }
+        else if($startpage==2){
+            echo '</div>';
+        }
+        echo '<a href="ResultPage.php?page='.$startpage.'">',$startpage,' ','</a>';
+        }
+
+            echo '</div>';
+    }
+    else{
+    $lastpage = 1;
+    echo '<div class="page">';
+    echo '<div class="current">';
+    echo '<a href="ResultPage.php?page='.$startpage.'">',$startpage,' ','</a>';
+    echo '</div>';
+    echo '</div>';
+    }
+
+    //ページネーション用の変数
+
+    if($count>0){
+        $_SESSION['keyArray'] = array();
+        $_SESSION['keyArray'] = $keyArray;
+    }
+
+        $_SESSION['str'] = $str;
+        $_SESSION['lastpage'] = $lastpage;//最小または最大ページ数を取得
+        $_SESSION['count'] = $count;//条件が指定されているかを確認
 ?>
 </body>
 </html>
