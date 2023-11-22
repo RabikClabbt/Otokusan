@@ -50,7 +50,7 @@ body {
 
 .rproduct img {
     width: 100%; /* 画像を親要素の100%に設定 */
-    height: auto; /* 高さを自動調整 */
+    height: 120px; /* 高さを自動調整 */
 }
 
 .rproduct .product-description {
@@ -65,4 +65,12 @@ body {
     text-align: center;
     font-weight: bold;
     white-space: normal; /* テキストを折り返すように設定 */
+}
+
+h2 {
+    margin:0px;
+}
+
+h3{
+    margin:0px;
 }
