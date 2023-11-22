@@ -1,4 +1,3 @@
-User
 <?php require 'Header.php';?>
 <?php
 
