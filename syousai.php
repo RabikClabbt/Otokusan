@@ -7,7 +7,6 @@
 </head>
 <body>
 <?php require 'db-connect.php';?>
-<?php require 'Header.php';?>
 <link rel="stylesheet" type="text/css" href="Syousai.css">
     <?php
 $pdo = new PDO($connect, USER, PASS);
@@ -15,8 +14,7 @@ if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
     $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
-        echo '<img src="image/',$row['imgPass'],'" height="130">';
-        echo '<br>';
+        echo '<img src="./image/shark.jpg" height="130">';
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
@@ -25,6 +23,7 @@ if (isset($_GET['productID'])) {
         for ($i = 1; $i < 11; $i++) {
             echo '<option value="' , $i , '">' , $i , '</option>';
         }
+
         echo '</select></p>';
         echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
         echo '<p><input type="submit" value="カートに追加"></p>';
@@ -50,7 +49,7 @@ if (isset($_GET['productID'])) {
     <h2>オンライン決済</h2>
     <i>・クレジットカード</i><br>
     <h2>・口座振り込み</h2><br>       
-    <i>対応店舗</i><br><i>・</i><br>
+    <i>対応店舗</i><br>
     <h2>・代金引換</h2><br>
 </div>
     <div style="background:beige;  display:table-cell; text-align:right;">
