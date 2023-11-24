@@ -1,7 +1,10 @@
 <?php session_start(); ?>
 <?php require 'Db-connect.php';?>
 <?php require 'Header.php';?>
+<link rel="stylesheet" href="css/Login-style2.css">
+<div class="container">
 <?php
+echo '<p><img src="image/otokusan.png" alt="image"></p>';
 unset($_SESSION['customer']);
 $pdo=new PDO($connect,USER,PASS);
 $sql=$pdo->prepare('select * from account where email=?');
@@ -24,4 +27,5 @@ if(isset($_SESSION['customer'])){
 }
     echo '<a href="TOP.php">TOPへ</a>';
 ?>
+</div>
 <?php require 'Footer.php';?>

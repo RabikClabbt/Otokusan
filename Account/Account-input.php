@@ -13,6 +13,8 @@
         $email=$_SESSION['customer']['email'];
         $password=$_SESSION['customer']['password'];
 
+      echo '<div class="container">';
+
       echo '<h1>アカウント情報</h1>';
     echo '<form method="post" action="Account-output.php">';
       echo '<label for="memberName">氏名</label>';
@@ -20,7 +22,7 @@
       echo '<input type="hidden" name="zipcord" value="' ,$zipcord, '">';
       echo '<input type="hidden" name="regionID" value="' ,$regionID, '">';
       echo '<input type="hidden" name="email" value="' ,$email, '">';
-      echo '<input type="submit" name="update" value="更新">';
+      echo '<input type="submit" name="update" value="更新" class="small-button">';
       echo '<br>';
     echo '</form>';
 
@@ -30,7 +32,7 @@
       echo '<input type="hidden" name="memberName" value="' ,$memberName, '">';
       echo '<input type="hidden" name="zipcord" value="' ,$zipcord, '">';
       echo '<input type="hidden" name="regionID" value="' ,$regionID, '">';
-      echo '<input type="submit" name="update" value="更新">';
+      echo '<input type="submit" name="update" value="更新" class="small-button">';
       echo '<br>';
     echo '</form>';
 
@@ -40,7 +42,7 @@
       echo '<input type="hidden" name="memberName" value="' ,$memberName, '">';
       echo '<input type="hidden" name="regionID" value="' ,$regionID, '">';
       echo '<input type="hidden" name="email" value="' ,$email, '">';
-      echo '<input type="submit" name="update" value="更新">';
+      echo '<input type="submit" name="update" value="更新" class="small-button">';
       echo '<br>';
     echo '</form>';
 
@@ -50,7 +52,7 @@
       $sql2=$pdo->prepare('select regionName from region where regionID=?');
       $sql2->execute([$regionID]);
       foreach($sql2 as $row){
-        echo '<p>',$row['regionName'],'</p>';
+        echo '<p>・',$row['regionName'],'</p>';
       }
 
       $sql=$pdo->query('select * from prefectures');
@@ -62,16 +64,20 @@
       echo '<input type="hidden" name="memberName" value="' ,$memberName, '">';
       echo '<input type="hidden" name="zipcord" value="' ,$zipcord, '">';
       echo '<input type="hidden" name="email" value="' ,$email, '">';
-      echo '<input type="submit" name="update" value="更新">';
+      echo '<input type="submit" name="update" value="更新" class="small-button">';
     echo '</form>';
 
     echo '<a href="Logout.php">ログアウト</a>';
     echo '<a href="Delete.php">アカウント削除</a>';
     echo '<a href="TOP.php">TOPへ</a>';
+
+    echo '</div>';
   }
 
   else{
     $sql=$pdo->query('select *from prefectures');
+    echo '<div class="container">';
+
     echo '<form method="post" action="Account-output.php">';
       echo '<h1>アカウント登録</h1>';
 
@@ -98,8 +104,10 @@
       echo '<input type="text" id="zipcord" name="zipcord" value="',$zipcord,'">';
       echo '<br>';
           
-      echo '<input type="submit" name="insert" value="登録">';
+      echo '<input type="submit" name="insert" value="登録" class="small-button">';
     echo '</form>';
+
+    echo '</div>';
   }
   
 ?>

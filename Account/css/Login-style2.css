@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fbfaf5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbfaf5;
+    padding: 20px;
+    text-align: center; /* 画像を中央に配置するために追加 */
+}
+
+form {
+    margin-top: 20px; /* 画像の下にスペースを追加 */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: inline-block;
+    margin-top: 10px; /* ボタンの上にスペースを追加 */
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #6f4b3e;
+    color: #fff;
+    border-radius: 4px;
+}
+
+a:hover {
+    background-color: #6f4b3e;
+}
+
+img {
+    width: 500px;
+    height: 500px;
+    margin: 20px 0; /* 画像の上下にスペースを追加 */
+}
