@@ -113,8 +113,8 @@
         echo '<tr>';
         foreach($sql as $row){
             echo '<td>';
-            echo '<a href="#">'; //商品詳細画面への遷移指定
-            echo '<img src="',$row['imgPass'],'.jpg" height="170">'; //商品画像の表示
+            echo '<a href="Syousai.php?productID='.$row['productID'].'">'; //商品詳細画面への遷移指定
+            echo '<img src="otokusanImage/',$row['imgPass'],'" height="130">'; //商品画像の表示
             echo '</a>';
             echo '<br>';
             echo $row['productName'];
