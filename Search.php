@@ -50,6 +50,7 @@
 <option value='price3'>4000～6000</option>
 <option value='price4'>6000～8000</option>
 <option value='price5'>8000～10000</option>
+<option value='price6'>10000～</option>
 </select>
 </label>
 </td>

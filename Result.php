@@ -119,6 +119,11 @@ if($_POST['price']!=0){
             $keyArray[$count+1]=10000;
             $count+=2;
         break;
+        case 'price6':
+            $keyArray[$count]=10000;
+            $keyArray[$count+1]=500000;
+            $count+=2;
+        break;
     }
 }
 
@@ -149,8 +154,8 @@ if($_POST['price']!=0){
         echo '<tr>';
         foreach($sql as $row){
             echo '<td>';
-            echo '<a href="#">'; //商品詳細画面への遷移指定
-            echo '<img src="',$row['imgPass'],'.jpg" height="170">'; //商品画像の表示
+            echo '<a href="Syousai.php?productID='.$row['productID'].'">'; //商品詳細画面への遷移指定
+            echo '<img src="otokusanImage/',$row['imgPass'],'" height="130">'; //商品画像の表示
             echo '</a>';
             echo '<br>';
             echo $row['productName'];
