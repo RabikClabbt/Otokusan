@@ -65,6 +65,8 @@ if (isset($_POST['productID'], $_POST['count'])) {
         // 未ログイン時、セッションに保存
         addToSessionCart($productId, $count);
     }
+} else {
+    
 }
 
 // カート情報を取得
@@ -128,7 +130,7 @@ require 'Sidebar.php';
         </thead>
         <tbody>
             <tr v-for="cartItem in cartItems" :key="cartItem.productID">
-                <td><img :src="cartItem.imgPass" :alt="cartItem.productName"></td>
+                <td><img :src="'./image/' + cartItem.imgPass" :alt="cartItem.productName"></td>
                 <td>{{ cartItem.productName }}</td>
                 <td>{{ cartItem.price }}円</td>
                 <td>
@@ -147,5 +149,6 @@ require 'Sidebar.php';
     </div>
 </div>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"><script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="./js/Cart.js"></script>
