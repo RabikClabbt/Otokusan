@@ -71,6 +71,7 @@ if (isset($_POST['productID'], $_POST['count'])) {
 
 // カート情報を取得
 if ($userId > 0) {
+    // データベースからカート情報を取得
     $cartQuery = "SELECT c.productID, p.productName, p.price, p.imgPass, c.quantity
                   FROM cart c
                   JOIN product p ON c.productID = p.productID
