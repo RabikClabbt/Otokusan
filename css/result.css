@@ -1,6 +1,37 @@
-h1{
+h1 {
     text-align: center;
 }
-table td{
-    padding: 30px;
+
+table td {
+    padding: 15px;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 8px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.page a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    border: 1px solid #ae7c58;
+    border-radius: 1px;
+    color: #ae7c58;
+}
+
+.page a:not(:hover) {
+    text-decoration: none;
+}
+
+.page .current a {
+    background-color: #ae7c58;
+    color: #fff;
+    pointer-events: none;
 }

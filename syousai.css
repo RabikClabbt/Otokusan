@@ -1,0 +1,125 @@
+/* ページ全体のスタイル */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* コンテナスタイル */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 商品情報のスタイル */
+img:not(#header,.menubtn,#g-nav){
+  max-width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+i {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+p{
+display:block;
+text-align:center;
+}
+/* 数量選択 */
+select {
+  padding: 8px; /* セレクトボックスの内部余白 */
+  font-size: 16px; /* フォントサイズ */
+  border: 1px solid #ccc; /* 境界線のスタイル */
+  border-radius: 5px; /* 角丸 */
+}
+
+label {
+  display: block;
+  text-align: center;
+  margin-bottom: 8px; /* ラベルとセレクトボックスの間の余白 */
+}
+
+
+/* ボタンスタイル */
+a:not(#header,.menubtn,#g-nav) {
+  display: block;
+  text-align: center;
+  background-color: #ea7c0e;
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+a:hover:not(#header,.menubtn,#g-nav) {
+  background-color: #ea7c0e;
+}
+
+form{
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* 商品説明スタイル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  border: 1px solid;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* 商品情報の詳細 */
+h2 {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ページ遷移リンクのスタイル */
+a[href="商品一覧のURL"]:not(#header,.menubtn,#g-nav) {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #3498db; /* リンク色を変更 */
+}
+
+a[href="商品一覧のURL"]:hover:not(#header,.menubtn,#g-nav) {
+  text-decoration: underline;
+}
