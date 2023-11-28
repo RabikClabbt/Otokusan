@@ -3,37 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Syousai.css">
     <title>商品詳細</title>
 </head>
 <body>
 <?php require 'db-connect.php';?>
-<?php require 'Header.php';?>
+<link rel="stylesheet" type="text/css" href="Syousai.css">
     <?php
 $pdo = new PDO($connect, USER, PASS);
-/*if (isset($_GET['productID'])) {*/
-    $id = 26;
+if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
-    $sql->execute([$id]);
+    $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
-        echo '<p><img alt="image" src="image/', $row['imgPass'], '.jpg"></p>';
+        echo '<img src="./image/shark.jpg" height="130">';
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
         echo '<form action="カートページのURL" method="post">';
         echo '<p>個数:<select name="count">';
-        for ($i = 1; $i < 10; $i++) {
+        for ($i = 1; $i < 11; $i++) {
             echo '<option value="' , $i , '">' , $i , '</option>';
         }
+
         echo '</select></p>';
         echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
-        echo '<input type="hidden" name="name" value="' . $row['productName'] . '">';
-        echo '<input type="hidden" name="price" value="' . $row['price'] . '">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
-        echo '<p><a href="購入画面のURL?id=', $row['productID'], '">購入画面へ</a></p>';
-
-        echo '<i>商品説明</i><br><br><i>さっさと金払え</i>';
+        echo '<form action="購入画面のURL" method="post">';
+        echo '<p><input type="submit" value="購入画面へ"></p>';
+        echo '</form>';
+        echo '<i>商品説明</i><br><i>さっさと金払え</i>';
 
         echo '<table> <tr><th>商品概要</th></tr>';
         echo '<tr><td>商品名称　　上見ろ</td></tr>';
@@ -42,7 +40,7 @@ $pdo = new PDO($connect, USER, PASS);
         echo '<tr><td>配送方法　　投げ配</td></tr>';
         echo '</table>';
     }
-/*}*/
+}
 
 ?>
     <div style="background:lavender;  display:table;  width:100%;">
@@ -51,7 +49,7 @@ $pdo = new PDO($connect, USER, PASS);
     <h2>オンライン決済</h2>
     <i>・クレジットカード</i><br>
     <h2>・口座振り込み</h2><br>       
-    <i>対応店舗</i><br><i>・</i><br>
+    <i>対応店舗</i><br>
     <h2>・代金引換</h2><br>
 </div>
     <div style="background:beige;  display:table-cell; text-align:right;">

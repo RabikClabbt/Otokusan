@@ -3,12 +3,12 @@ require 'db-connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 受け取ったデータを取得
-    $productId = $_POST['productId'];
-    $newQuantity = $_POST['newQuantity'];
+    $productId = $_POST['productID'];
+    $newQuantity = $_POST['count'];
 
     // データベースで数量を更新する処理を実装
-    // 以下は例としてcart_itemsテーブルを使用する場合のコード
-    $updateQuery = "UPDATE cart_items SET quantity = :quantity WHERE product_id = :product_id";
+    // 以下は例としてcartテーブルを使用する場合のコード
+    $updateQuery = "UPDATE cart SET quantity = :quantity WHERE productID = :product_id";
     $updateStatement = $pdo->prepare($updateQuery);
     $updateStatement->bindParam(':product_id', $productId, PDO::PARAM_INT);
     $updateStatement->bindParam(':quantity', $newQuantity, PDO::PARAM_INT);
