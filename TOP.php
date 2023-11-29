@@ -74,17 +74,20 @@
             echo '</div>';
             echo '<div class="ho">';
                 /*hrefの中に北海道リンク先を張ってください*/
-                echo '<a href="#hokkaido"><img src="image/Hokkaido.png"></a>';
+                echo '<a href="area.php?regionID='1'">';
+                echo '<img src="image/Hokkaido.png"></a>';
                 /*echo '<input type="image" name="ho" src="image/Hokkaido.png"  alt="ho" value="ho">';*/
             echo '</div>';
             echo '<div class="to">';
                 /*hrefの中に東北地方リンク先を張ってください*/
-                echo '<a href="#tohoku"><img src="image/tohoku.png"></a>';
+                echo '<a href="area.php?regionID='2'">';
+                echo '<img src="image/tohoku.png"></a>';
                 /*echo '<input type="image" name="to" src="image/tohoku.png"  alt="to" value="to">';*/
             echo '</div>';
             echo '<div class="kan">';
                 /*hrefの中に関東地方リンク先を張ってください*/
-                echo '<a href="#kanto"><img src="image/kanto.png"></a>';
+                echo '<a href="area.php?regionID='3'">';
+                echo '<img src="image/kanto.png"></a>';
                 /*echo '<input type="image" name="kan" src="image/kanto.png"  alt="kan" value="kan">';*/
             echo '</div>';
             echo '<div class="tyu">';
