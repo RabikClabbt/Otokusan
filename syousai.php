@@ -1,4 +1,3 @@
-<?php require 'Sidebar.php'; ?>
 <?php require 'db-connect.php';?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -9,6 +8,7 @@
 </head>
 <body>
 <?php require 'Header.php';?>
+<?php require 'Sidebar.php'; ?>
 <link rel="stylesheet" type="text/css" href="Syousai.css">
     <?php
 $pdo = new PDO($connect, USER, PASS);
@@ -26,12 +26,17 @@ if (isset($_GET['productID'])) {
             echo '<option value="' , $i , '">' , $i , '</option>';
         }
         echo '</select></p>';
+
         echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
+        echo '<form action="カート画面のURL" method="post">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
+
+        echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
         echo '<form action="購入画面のURL" method="post">';
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
+
         echo '<i>商品説明</i><br><i>さっさと金払え</i>';
 
         echo '<table> <tr><th>商品概要</th></tr>';
@@ -58,6 +63,8 @@ if (isset($_GET['productID'])) {
     <i>未使用・未開封のみ可</i><br>
 </div>
 </div>
-<a href="商品一覧URL">商品一覧へ</a>
+<form action="商品一覧URL" method="post">
+<input type="submit" value="商品一覧へ">
+</form>
 </body>
 </html>
