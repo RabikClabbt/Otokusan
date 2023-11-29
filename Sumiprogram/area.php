@@ -25,9 +25,7 @@ try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT p.*, pr.prefecturesName FROM product p
-        JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo
-        WHERE pr.regionID = ?
+    $sql = "SELECT p.*, pr.prefecturesName FROM product p  JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo  WHERE pr.regionID = ?
         LIMIT 3";
 
     $stmt = $pdo->prepare($sql);
@@ -77,14 +75,14 @@ try {
     $sql = "SELECT p.*, pr.prefecturesName FROM product p
             JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo
             WHERE pr.regionID = ?";
-
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$area]);
+    $data = $stmt->fetchAll();
 
     if ($stmt !== false) {
         $counter = 0; // カウンターを初期化
 
-        foreach ($stmt as $row) {
+        foreach ($data as $row) {
             if ($counter % 4 == 0) {
                 // カウンターが4の倍数の場合、新しい行を開始
                 echo '<div class="ranking-list">';
