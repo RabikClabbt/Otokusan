@@ -113,6 +113,7 @@ if ($userId > 0) {
 
 // 以下はHTMLなどの表示部分
 require 'Header.php';
+require 'Sidebar.php';
 ?>
 
 <!-- カート情報の表示 -->
