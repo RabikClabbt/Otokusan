@@ -1,0 +1,181 @@
+body{
+    background-color: #ede4cd;
+}
+h1.tiiki {
+    color:#ae7c58;
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.region {
+    position: relative;
+    background-image: url("../gahaku/haikei03.png");
+    background-size: cover;
+    width: 900px;
+    height: 800px;
+    margin: 0 auto;
+}
+
+.animation{
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-duration: 1.5s;
+}
+
+
+.ugokitate{
+      animation-name: anim_v;
+}
+@keyframes anim_v {
+    0% {
+        transform: translate(0, 0px);
+    }
+    100% {
+        transform: translate(0, 60px);
+    }
+}
+
+.ugokinaname{
+      animation-name: anim_h;
+}
+@keyframes anim_h {
+    0% {
+        transform: translate(0px, 0);
+    }
+    100% {
+        transform: translate(100px, -50px);
+    }
+}
+
+.ugokikaiten{
+      animation-name: anim_r;
+      animation-duration: 4s;
+      animation-timing-function: linear;
+      animation-direction: normal;
+}
+
+@keyframes anim_r {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.taiyo{
+    width:200px;
+    position: relative;
+}
+
+.hikouki{
+    width:200px;
+    position: relative;
+    left: 300px;
+    top: 100px;
+}
+
+.hikouki img {
+    width: 200px;
+    height: auto;
+}
+
+.tori{
+    position: relative;
+    width:200px;
+    height: 100px;
+    top: -150px;
+}
+
+_:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
+    width:200px;
+    position: relative;
+    left: 750px; /* å·¦ç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+    top: 10px; /* ä¸Šç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+  }
+
+.ho {
+    width:200px;
+    position: relative;
+    left: 630px; /* å·¦ç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+    top: -360px; /* ä¸Šç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+}
+
+.to {
+    position: relative;
+    left: 650px;
+    top: -360px;
+    width:200px;
+}
+
+.kan {
+    position: relative;
+    left:665px;
+    top: -370px;
+    width:200px;
+}
+
+.tyu {
+    position: relative;
+    left: 460px;
+    top: -610px;
+    width:200px;
+}
+
+.kik {
+    position: relative;
+    left: 370px;
+    top: -830px;
+    width:200px;
+}
+
+.tyugo {
+    position: relative;
+    left: 220px;
+    top: -1080px;
+    width:130px;
+}
+
+.siko {
+    position: relative;
+    left: 230px;
+    top: -1080px;
+    width:130px;
+}
+
+.kyusy {
+    position: relative;
+    left: 20px;
+    top: -1320px;
+    width:200px;
+}
+
+.rink{
+    width: 700px;
+    margin: 10px auto;
+}
+
+a{
+    text-decoration: none;
+    color: #cd853f;
+}
+
+h1.ken {
+    color:#b8860b;
+    position: relative;
+    width: 900px;
+    margin: 0 auto;
+}
+
+h2.anchor{
+    display: block;
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+.kuhaku{
+    width:400px;
+    height: 700px;
+}
