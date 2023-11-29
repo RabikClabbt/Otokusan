@@ -113,13 +113,12 @@ if ($userId > 0) {
 
 // 以下はHTMLなどの表示部分
 require 'Header.php';
-require 'Sidebar.php';
 ?>
 
 <!-- カート情報の表示 -->
-<div class="cart-container">
+<div class="cartContainer">
     <h3>ショッピングカート</h3>
-    <table v-if="cartItems.length > 0">
+    <table v-if="itemAvailability">
         <thead>
             <tr>
                 <th>商品画像</th>
@@ -150,6 +149,6 @@ require 'Sidebar.php';
     </div>
 </div>
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"><script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.2/dist/axios.min.js"></script>
 <script src="./js/Cart.js"></script>
