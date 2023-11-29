@@ -1,3 +1,4 @@
+<?php require 'db-connect.php';?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,7 +7,8 @@
     <title>商品詳細</title>
 </head>
 <body>
-<?php require 'db-connect.php';?>
+<?php require 'Header.php';?>
+<?php require 'Sidebar.php'; ?>
 <link rel="stylesheet" type="text/css" href="Syousai.css">
     <?php
 $pdo = new PDO($connect, USER, PASS);
@@ -14,7 +16,7 @@ if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
     $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
-        echo '<img src="./image/shark.jpg" height="130">';
+        echo '<img src="./image/',$row['imgPass'],'"height="130">';
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
@@ -23,18 +25,22 @@ if (isset($_GET['productID'])) {
         for ($i = 1; $i < 11; $i++) {
             echo '<option value="' , $i , '">' , $i , '</option>';
         }
-
         echo '</select></p>';
+
         echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
+        echo '<form action="カート画面のURL" method="post">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
+
+        echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
         echo '<form action="購入画面のURL" method="post">';
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
+
         echo '<i>商品説明</i><br><i>さっさと金払え</i>';
 
         echo '<table> <tr><th>商品概要</th></tr>';
-        echo '<tr><td>商品名称　　上見ろ</td></tr>';
+        echo '<tr><td>商品名称　　' . $row['productName'] . '</td></tr>';
         echo '<tr><td>原材料　　　？</td></tr>';
         echo '<tr><td>賞味期限　　昨日</td></tr>';
         echo '<tr><td>配送方法　　投げ配</td></tr>';
@@ -57,6 +63,8 @@ if (isset($_GET['productID'])) {
     <i>未使用・未開封のみ可</i><br>
 </div>
 </div>
-<a href="商品一覧URL">商品一覧へ</a>
+<form action="商品一覧URL" method="post">
+<input type="submit" value="商品一覧へ">
+</form>
 </body>
 </html>

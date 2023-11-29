@@ -1,7 +1,6 @@
 /* ページ全体のスタイル */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
   padding: 0;
   background-color: #f5f5f5;
 }
@@ -16,11 +15,9 @@ body {
 }
 
 /* 商品情報のスタイル */
-img:not(#header,.menubtn,#g-nav){
-  max-width: 50%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+img{
+  margin-right: 20px;
+
 }
 
 i {
@@ -31,11 +28,14 @@ i {
 }
 
 p{
-display:block;
+display:inline-block;
 text-align:center;
+vertical-align:middle;
 }
+
 /* 数量選択 */
 select {
+  display:inline-block;
   padding: 8px; /* セレクトボックスの内部余白 */
   font-size: 16px; /* フォントサイズ */
   border: 1px solid #ccc; /* 境界線のスタイル */
@@ -53,7 +53,7 @@ label {
 a:not(#header,.menubtn,#g-nav) {
   display: block;
   text-align: center;
-  background-color: #ea7c0e;
+  background-color: #f8f8f8;
   color: #fff;
   padding: 20px;
   text-decoration: none;
@@ -61,14 +61,13 @@ a:not(#header,.menubtn,#g-nav) {
 }
 
 a:hover:not(#header,.menubtn,#g-nav) {
-  background-color: #ea7c0e;
+  background-color: #f8f8f8;
 }
 
 form{
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   text-align: center;
 }
 
@@ -113,13 +112,14 @@ h2 {
 }
 
 /* ページ遷移リンクのスタイル */
-a[href="商品一覧のURL"]:not(#header,.menubtn,#g-nav) {
-  display: inline-block;
+form[action="商品一覧URL"]:not(#header,.menubtn,#g-nav) {
+  display: block;
   margin-top: 20px;
-  text-decoration: none;
-  color: #3498db; /* リンク色を変更 */
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
 }
 
-a[href="商品一覧のURL"]:hover:not(#header,.menubtn,#g-nav) {
+form[action="商品一覧URL"]:hover:not(#header,.menubtn,#g-nav) {
   text-decoration: underline;
 }
