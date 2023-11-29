@@ -32,7 +32,7 @@ try {
     $stmt->execute([$area]);
 
     if ($stmt !== false) {
-        $counter = 0; // カウンターを初期化
+        $counter = 0; // カウンターを初期化qqq
 
         foreach ($stmt as $row) {
             if ($counter % 3 == 0) {
