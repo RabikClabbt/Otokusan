@@ -119,35 +119,37 @@ require 'Sidebar.php';
 <!-- カート情報の表示 -->
 <div class="cartContainer">
     <h3>ショッピングカート</h3>
-    <table v-if="itemAvailability">
-        <thead>
-            <tr>
-                <th>商品画像</th>
-                <th>商品名</th>
-                <th>価格</th>
-                <th>個数</th>
-                <th>小計</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="cartItem in cartItems" :key="cartItem.productID">
-                <td><img :src="'./otokusanImage/' + cartItem.imgPass" :alt="cartItem.productName"></td>
-                <td>{{ cartItem.productName }}</td>
-                <td>{{ cartItem.price }}円</td>
-                <td>
-                    <select v-model="cartItem.quantity" @change="updateQuantity(cartItem.productID, cartItem.quantity)">
-                        <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
-                    </select>
-                </td>
-                <td>{{ cartItem.price * cartItem.quantity }}円</td>
-                <td>
-                    <button @click="removeFromCart(cartItem.productID)">削除</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <a href="Purchase-input.php">購入</a>
+    <div v-if="itemAvailability">
+        <table>
+            <thead>
+                <tr>
+                    <th>商品画像</th>
+                    <th>商品名</th>
+                    <th>価格</th>
+                    <th>個数</th>
+                    <th>小計</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="cartItem in cartItems" :key="cartItem.productID">
+                    <td><img :src="'./otokusanImage/' + cartItem.imgPass" :alt="cartItem.productName"></td>
+                    <td>{{ cartItem.productName }}</td>
+                    <td>{{ cartItem.price }}円</td>
+                    <td>
+                        <select v-model="cartItem.quantity" @change="updateQuantity(cartItem.productID, cartItem.quantity)">
+                            <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
+                        </select>
+                    </td>
+                    <td>{{ cartItem.price * cartItem.quantity }}円</td>
+                    <td>
+                        <button @click="removeFromCart(cartItem.productID)">削除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="Purchase-input.php">購入</a>
+    </div>
     <div v-else>
         <p>カートは空です。</p>
     </div>
