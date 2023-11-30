@@ -17,7 +17,7 @@ function addToCart($productId, $count, $userId, $pdo) {
 
     if ($existingCartItem) {
         // すでにカートに同じ商品が入っている場合は数量を更新
-        $newQuantity = $existingCartItem['quantity'] + $count;
+        $newQuantity = (($existingCartItem['quantity'] + $count) < 10) ? $existingCartItem['quantity'] + $count : 10;
         $updateQuery = "UPDATE cart SET quantity = :quantity WHERE memberID = :user_id AND productID = :product_id";
         $updateStatement = $pdo->prepare($updateQuery);
         $updateStatement->bindParam(':user_id', $userId, PDO::PARAM_INT);
@@ -46,7 +46,7 @@ function addToSessionCart($productId, $count) {
         $count = $_SESSION['sesstionCart'][$productId]['quantity'];
     }
     $_SESSION['sesstionCart'][$productId] = [
-        'quantity' => $quantity + $count
+        'quantity' => (($quantity + $count) < 10) ? $quantity + $count : 10
     ];
 }
 
@@ -126,12 +126,13 @@ require 'Sidebar.php';
                 <th>商品名</th>
                 <th>価格</th>
                 <th>個数</th>
+                <th>小計</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="cartItem in cartItems" :key="cartItem.productID">
-                <td><img :src="'./image/' + cartItem.imgPass" :alt="cartItem.productName"></td>
+                <td><img :src="'./otokusanImage/' + cartItem.imgPass" :alt="cartItem.productName"></td>
                 <td>{{ cartItem.productName }}</td>
                 <td>{{ cartItem.price }}円</td>
                 <td>
@@ -139,12 +140,14 @@ require 'Sidebar.php';
                         <option v-for="n in 10" :key="n" :value="n">{{ n }}</option>
                     </select>
                 </td>
+                <td>{{ cartItem.price * cartItem.quantity }}円</td>
                 <td>
                     <button @click="removeFromCart(cartItem.productID)">削除</button>
                 </td>
             </tr>
         </tbody>
     </table>
+    <a href="Purchase-input.php">購入</a>
     <div v-else>
         <p>カートは空です。</p>
     </div>
