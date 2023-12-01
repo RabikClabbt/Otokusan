@@ -20,7 +20,7 @@ if (isset($_GET['productID'])) {
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
-        echo '<form action="カートページのURL" method="post">';
+        echo '<form action="Cart.php" method="post">';
         echo '<p>個数:<select name="count">';
         for ($i = 1; $i < 11; $i++) {
             echo '<option value="' , $i , '">' , $i , '</option>';
@@ -28,7 +28,6 @@ if (isset($_GET['productID'])) {
         echo '</select></p>';
 
         echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
-        echo '<form action="カート画面のURL" method="post">';
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
 
@@ -37,7 +36,7 @@ if (isset($_GET['productID'])) {
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
 
-        echo '<i>商品説明</i><br><i>さっさと金払え</i>';
+        echo '<i class="setumei">商品説明</i><br><i>さっさと金払え</i>';
 
         echo '<table> <tr><th>商品概要</th></tr>';
         echo '<tr><td>商品名称　　' . $row['productName'] . '</td></tr>';
@@ -52,11 +51,11 @@ if (isset($_GET['productID'])) {
     <div style="background:lavender;  display:table;  width:100%;">
     <div style="background:lightbrown; display:table-cell;">
     <h2>お支払いについて</h2>
-    <h2>オンライン決済</h2>
-    <i>・クレジットカード</i><br>
+    <h2 class="online">オンライン決済</h2>
+    <i class="kureka">・クレジットカード</i><br>
     <h2>・口座振り込み</h2><br>       
     <i>対応店舗</i><br>
-    <h2>・代金引換</h2><br>
+    <h2 class="daibiki">・代金引換</h2><br>
 </div>
     <div style="background:beige;  display:table-cell; text-align:right;">
     <h2>返品・交換について</h2>
@@ -64,7 +63,8 @@ if (isset($_GET['productID'])) {
 </div>
 </div>
 <form action="商品一覧URL" method="post">
-<input type="submit" value="商品一覧へ">
+<input type="submit" value="商品一覧へ"
+style="padding: 10px; background-color: #f6e5cc; color: black; border: none; border-radius: 5px; cursor: pointer;">
 </form>
 </body>
 </html>

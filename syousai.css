@@ -17,7 +17,8 @@ body {
 
 /* 商品情報のスタイル */
 img{
-    margin:auto;
+  display: block;
+  margin:auto;
 }
 
 i {
@@ -25,6 +26,15 @@ i {
   text-align: center;
   font-style: italic;
   margin-top: 10px;
+}
+
+.setumei{
+  font-weight: bold;
+}
+
+.kureka{
+  text-align: left;
+  vertical-align:top;
 }
 
 p{
@@ -109,6 +119,17 @@ h2 {
   margin-top: 20px;
   text-align: center;
 }
+
+.online{
+  text-align: left;
+  vertical-align:top;
+}
+
+.daibiki{
+  text-align:right;
+  vertical-align:top;
+}
+
 
 /* ページ遷移リンクのスタイル */
 form[action="商品一覧URL"]:not(#header,.menubtn,#g-nav) {
