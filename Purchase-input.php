@@ -6,13 +6,14 @@
 <title>minamis programs</title>
 </head>
 <body>
-<?php require 'header.php'; ?>
+<?php require 'Header.php'; ?>
 <?php require 'db-connect.php';?>
 <?php
     $postage=540; //送料の変数割り当て
     $prefecturesNo=0; //都道府県ナンバーの変数を作ってます。
     $price=0; //価格変数
     $productName=''; //商品ネーム変数
+    $cartdelete=0; //購入後にカートの情報を削除するか判断する
     if (isset($_SESSION['customer'])) {
         echo '氏名：', $_SESSION['customer']['memberName'] ,'<br>';
         echo '所在地域：';
@@ -22,9 +23,9 @@
             echo $row['regionName'];
         }
 
-        if(isset($_GET['productID'])){ //廣永ファイル（商品詳細）から情報が送られた場合
+        if(isset($_POST['productID'])){ //廣永ファイル（商品詳細）から情報が送られた場合
             $sql=$pdo->prepare('select * from product where productID');
-            $sql->execute($_GET['productID']);
+            $sql->execute($_POST['productID']);
             foreach($sql as $row){
                 $prefectureNo=$row['prefecturesNo'];
                 $price=$row['price'];
@@ -46,6 +47,7 @@
             }
         }
         else{
+            $cartdelete=1;
             $cartStatement = $pdo->prepare('SELECT c.productID, p.productName, p.price, p.imgPass, p.prefecturesNo, c.quantity FROM cart c
                                             JOIN product p ON c.productID = p.productID
                                             WHERE c.memberID = ?');
@@ -88,18 +90,20 @@
             //$sql=$pdo->prepare('select * from product where productID');
             $sql->execute($productID[]);
             foreach($sql as $row){
-                $prefectureNo=$row['prefecturesNo']
+                $prefectureNo=$row['prefecturesNo'];
                 echo $row['productName'];
                 echo '個数：',$quantity[],'個';
                 echo '合計金額',$row['price']*$_POST['count']+$postage,'円';
             }
         }
-    
+        echo '<form method="post" action="Purchase-output.php">';
+        echo '<input type="hidden" name="cartdelete" value="' ,$cartdelete, '">';
         echo '内容をご確認いただき、購入を確定してください。<br>';
         echo '<a href="Purchase-output.php">購入を確定する</a>';
-
+        echo '</form>';
     } else {
         echo '商品を購入するには、ログインしてください。';
+        echo '<a href="Login-input.php">ログイン画面へ</a>';
     }
 ?>
 </body>
