@@ -31,7 +31,7 @@ if (isset($_GET['productID'])) {
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
 
-        echo '<input type="hidden" name="id" value="' . $row['productID'] . '">';
+        echo '<input type="hidden" name="productID" value="' . $row['productID'] . '">';
         echo '<form action="購入画面のURL" method="post">';
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
