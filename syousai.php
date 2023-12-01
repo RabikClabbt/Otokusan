@@ -31,8 +31,8 @@ if (isset($_GET['productID'])) {
         echo '<p><input type="submit" value="カートに追加"></p>';
         echo '</form>';
 
+        echo '<form action="Purchase-input.php" method="post">';
         echo '<input type="hidden" name="productID" value="' . $row['productID'] . '">';
-        echo '<form action="購入画面のURL" method="post">';
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
 
@@ -48,21 +48,28 @@ if (isset($_GET['productID'])) {
 }
 
 ?>
-    <div style="background:lavender;  display:table;  width:100%;">
-    <div style="background:lightbrown; display:table-cell;">
+<div style="background:lavender;  display:table;  width:100%;">
+  <div style="background:lightbrown; display:table-cell;">
     <h2>お支払いについて</h2>
-    <h2 class="online">オンライン決済</h2>
-    <i class="kureka">・クレジットカード</i><br>
-    <h2>・口座振り込み</h2><br>       
-    <i>対応店舗</i><br>
-    <h2 class="daibiki">・代金引換</h2><br>
-</div>
-    <div style="background:beige;  display:table-cell; text-align:right;">
+    <div class="payment-options">
+      <div>
+        <h2 class="online">・オンライン決済</h2>
+        <i class="kureka">クレジットカード</i><br>
+      </div>
+      <div>
+        <h2>・口座振り込み</h2><br>       
+        <i>対応店舗</i><br>
+      </div>
+      <div>
+        <h2 class="daibiki">・代金引換</h2><br>
+      </div>
+    </div>
+  </div>
+  <div style="background:beige;  display:table-cell; text-align:right;">
     <h2>返品・交換について</h2>
-    <i>未使用・未開封のみ可</i><br>
-</div>
-</div>
-<form action="商品一覧URL" method="post">
+    <i class="mishiyou">未使用・未開封のみ可</i><br>
+  </div>
+</div><form action="商品一覧URL" method="post">
 <input type="submit" value="商品一覧へ"
 style="padding: 10px; background-color: #f6e5cc; color: black; border: none; border-radius: 5px; cursor: pointer;">
 </form>
