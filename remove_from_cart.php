@@ -4,7 +4,9 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // POSTデータから商品IDを取得する
-    $productId = $_POST['productId'];
+    $jsonData = json_decode(file_get_contents('php://input'), true);
+
+    $productId = $jsonData['productID'];
 
     // ログインしている場合
     if (isset($_SESSION['customer']['memberID'])) {
@@ -20,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['status' => 'success', 'message' => 'Item removed from cart successfully']);
     } else {
         // セッションカートに商品があるかチェックする
-        if (isset($_SESSION['sesstionCart'][$productId])) {
+        if (isset($_SESSION['sessionCart'][$productId])) {
             // セッションカートから商品を削除する
-            unset($_SESSION['sesstionCart'][$productId]);
+            unset($_SESSION['sessionCart'][$productId]);
 
             // 応答を返す（ここで必要に応じてJSON形式の応答を返す）
             echo json_encode(['status' => 'success', 'message' => 'Item removed from cart successfully']);

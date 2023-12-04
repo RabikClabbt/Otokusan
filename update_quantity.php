@@ -4,8 +4,11 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 受け取ったデータを取得
-    $productId = $_POST['productID'];
-    $newQuantity = $_POST['count'];
+    $jsonData = json_decode(file_get_contents('php://input'), true);
+
+    $productId = $jsonData['productId'];
+    $newQuantity = $jsonData['newQuantity'];
+
 
     // ログインしている場合はデータベースのカートを更新
     if (isset($_SESSION['customer']['memberID'])) {
@@ -22,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(['status' => 'success', 'message' => 'Quantity updated successfully']);
     } else {
         // 未ログイン時はセッションのカートを更新
-        if (isset($_SESSION['sesstionCart'][$productId])) {
-            $_SESSION['sesstionCart'][$productId]['quantity'] = $newQuantity;
+        if (isset($_SESSION['sessionCart'][$productId])) {
+            $_SESSION['sessionCart'][$productId]['quantity'] = $newQuantity;
         }
 
         // 応答を返す（ここで必要に応じてJSON形式の応答を返す）
