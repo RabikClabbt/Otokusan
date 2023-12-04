@@ -28,13 +28,12 @@ i {
   margin-top: 10px;
 }
 
-.setumei{
-  font-weight: bold;
+.kureka{
+  padding: 29px;
 }
 
-.kureka{
-  text-align: left;
-  vertical-align:top;
+.setumei{
+  font-weight: bold;
 }
 
 p{
@@ -119,16 +118,20 @@ h2 {
   margin-top: 20px;
   text-align: center;
 }
-
-.online{
-  text-align: left;
-  vertical-align:top;
+.payment-options {
+  display: flex;
+  justify-content: space-between;
 }
 
-.daibiki{
-  text-align:right;
-  vertical-align:top;
+.payment-options div {
+  flex-grow: 1;
+  text-align: center;
 }
+
+.mishiyou{
+  padding: 30px;
+}
+
 
 
 /* ページ遷移リンクのスタイル */
