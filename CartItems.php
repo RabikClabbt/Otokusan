@@ -14,9 +14,9 @@ function getCartItems($pdo, $userId) {
         $cartStatement->execute();
         return $cartStatement->fetchAll(PDO::FETCH_ASSOC);
     } else {
-        if (isset($_SESSION['sesstionCart'])) {
+        if (isset($_SESSION['sessionCart'])) {
             // セッションからカートアイテムを取得する
-            $sessionCartItems = $_SESSION['sesstionCart'];
+            $sessionCartItems = $_SESSION['sessionCart'];
             $cartItems = [];
 
             foreach ($sessionCartItems as $productId => $item) {

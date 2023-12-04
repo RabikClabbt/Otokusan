@@ -38,21 +38,21 @@ function addToCart($productId, $count, $userId, $pdo) {
 // セッションカートに商品を追加する関数
 function addToSessionCart($productId, $count) {
 
-    if (!isset($_SESSION['sesstionCart'])) {
-        $_SESSION['sesstionCart'] = [];
+    if (!isset($_SESSION['sessionCart'])) {
+        $_SESSION['sessionCart'] = [];
     }
     $quantity = $count;
-    if (isset($_SESSION['sesstionCart'][$productId])) {
-        $count = $_SESSION['sesstionCart'][$productId]['quantity'];
+    if (isset($_SESSION['sessionCart'][$productId])) {
+        $count = $_SESSION['sessionCart'][$productId]['quantity'];
     }
-    $_SESSION['sesstionCart'][$productId] = [
+    $_SESSION['sessionCart'][$productId] = [
         'quantity' => (($quantity + $count) < 10) ? $quantity + $count : 10
     ];
 }
 
 // 商品詳細画面から商品IDと数量を受け取る
-if (isset($_POST['productID'], $_POST['count'])) {
-    $productId = $_POST['productID'];
+if (isset($_POST['id'], $_POST['count'])) {
+    $productId = $_POST['id'];
     $count = $_POST['count'];
 
     // ログインしている場合はユーザーIDを取得
@@ -65,8 +65,6 @@ if (isset($_POST['productID'], $_POST['count'])) {
         // 未ログイン時、セッションに保存
         addToSessionCart($productId, $count);
     }
-} else {
-    
 }
 
 // カート情報を取得
@@ -82,8 +80,8 @@ if ($userId > 0) {
     $cartItems = $cartStatement->fetchAll(PDO::FETCH_ASSOC);
 } else {
     // セッションからカート情報を取得
-    if (isset($_SESSION['sesstionCart'])) {
-        $sessionCartItems = $_SESSION['sesstionCart'];
+    if (isset($_SESSION['sessionCart'])) {
+        $sessionCartItems = $_SESSION['sessionCart'];
         $cartItems = [];
 
         foreach ($sessionCartItems as $productId => $item) {
@@ -133,7 +131,7 @@ require 'Sidebar.php';
             </thead>
             <tbody>
                 <tr v-for="cartItem in cartItems" :key="cartItem.productID">
-                    <td><img :src="'./otokusanImage/' + cartItem.imgPass" :alt="cartItem.productName"></td>
+                    <td><img :src="'./image/' + cartItem.imgPass" :alt="cartItem.productName" width="auto" height="200"></td>
                     <td>{{ cartItem.productName }}</td>
                     <td>{{ cartItem.price }}円</td>
                     <td>
