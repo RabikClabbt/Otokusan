@@ -12,8 +12,8 @@ h1.tiiki {
     position: relative;
     background-image: url("../gahaku/haikei03.png");
     background-size: cover;
-    width: 900px;
-    height: 800px;
+    width: 700px;
+    height: 600px;
     margin: 0 auto;
 }
 
@@ -24,7 +24,6 @@ h1.tiiki {
       animation-duration: 1.5s;
 }
 
-
 .ugokitate{
       animation-name: anim_v;
 }
@@ -32,6 +31,7 @@ h1.tiiki {
     0% {
         transform: translate(0, 0px);
     }
+    /*Ã¥ÂÂ³Ã£ÂÅ’Ã§Â¸Â¦Ã£ÂÂ«Ã§Â§Â»Ã¥â€¹â€¢Ã£Ââ„¢Ã£â€šâ€¹Ã¨Â·ÂÃ©â€ºÂ¢Ã¯Â¼Ë†+Ã£ÂÂ§Ã¤Â¸Å Ã£ÂÂ«Ã£â‚¬Â-Ã£ÂÂ§Ã¤Â¸â€¹Ã£ÂÂ«Ã§Â§Â»Ã¥â€¹â€¢Ã£ÂÂ§Ã£ÂÂÃ£â€šâ€¹Ã¯Â¼â€°*/
     100% {
         transform: translate(0, 60px);
     }
@@ -44,6 +44,7 @@ h1.tiiki {
     0% {
         transform: translate(0px, 0);
     }
+    /*Ã¥ÂÂ³Ã£ÂÅ’Ã¦â€“Å“Ã£â€šÂÃ£ÂÂ«Ã§Â§Â»Ã¥â€¹â€¢Ã£Ââ„¢Ã£â€šâ€¹Ã¨Â·ÂÃ©â€ºÂ¢Ã¯Â¼Ë†Ã¤Â¸Â¡Ã¦â€“Â¹+Ã£ÂÂ§Ã¥Â·Â¦Ã¤Â¸Å Ã£ÂÂ«Ã£â‚¬ÂÃ§â€°â€¡Ã¦â€“Â¹+-Ã£ÂÂ§Ã¥Â·Â¦Ã¤Â¸â€¹Ã£ÂÂ«Ã£â‚¬Â-+Ã£ÂÂ§Ã¥ÂÂ³Ã¤Â¸â€¹Ã£ÂÂ«Ã£â‚¬Â--Ã£ÂÂ§Ã¥ÂÂ³Ã¤Â¸Å Ã£ÂÂ«Ã§Â§Â»Ã¥â€¹â€¢Ã£ÂÂ§Ã£ÂÂÃ£â€šâ€¹Ã¯Â¼â€°*/
     100% {
         transform: translate(100px, -50px);
     }
@@ -73,12 +74,12 @@ h1.tiiki {
 .hikouki{
     width:200px;
     position: relative;
-    left: 300px;
-    top: 100px;
+    left: 200px;
+    top: 80px;
 }
 
 .hikouki img {
-    width: 200px;
+    width: 150px;
     height: auto;
 }
 
@@ -86,70 +87,111 @@ h1.tiiki {
     position: relative;
     width:200px;
     height: 100px;
+    left: 100px;
     top: -150px;
 }
 
 _:lang(x)::-internal-media-controls-overlay-cast-button, .ho {
     width:200px;
     position: relative;
-    left: 750px; /* å·¦ç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
-    top: 10px; /* ä¸Šç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+    left: 750px; /* ÃƒÂ¥Ã‚Â·Ã‚Â¦ÃƒÂ§Ã‚Â«Ã‚Â¯ÃƒÂ£Ã‚ÂÃ¢â‚¬Â¹ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â°ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¤Ã‚Â½Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢0ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¨Ã‚Â¨Ã‚Â­ÃƒÂ¥Ã‚Â®Ã…Â¡ */
+    top: 10px; /* ÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ§Ã‚Â«Ã‚Â¯ÃƒÂ£Ã‚ÂÃ¢â‚¬Â¹ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â°ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¤Ã‚Â½Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢0ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¨Ã‚Â¨Ã‚Â­ÃƒÂ¥Ã‚Â®Ã…Â¡ */
   }
 
 .ho {
     width:200px;
     position: relative;
-    left: 630px; /* å·¦ç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
-    top: -360px; /* ä¸Šç«¯ã‹ã‚‰ã®ä½ç½®ã‚’0ã«è¨­å®š */
+    left: 460px; /* ÃƒÂ¥Ã‚Â·Ã‚Â¦ÃƒÂ§Ã‚Â«Ã‚Â¯ÃƒÂ£Ã‚ÂÃ¢â‚¬Â¹ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â°ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¤Ã‚Â½Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢0ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¨Ã‚Â¨Ã‚Â­ÃƒÂ¥Ã‚Â®Ã…Â¡ */
+    top: -320px; /* ÃƒÂ¤Ã‚Â¸Ã…Â ÃƒÂ§Ã‚Â«Ã‚Â¯ÃƒÂ£Ã‚ÂÃ¢â‚¬Â¹ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬Â°ÃƒÂ£Ã‚ÂÃ‚Â®ÃƒÂ¤Ã‚Â½Ã‚ÂÃƒÂ§Ã‚Â½Ã‚Â®ÃƒÂ£Ã¢â‚¬Å¡Ã¢â‚¬â„¢0ÃƒÂ£Ã‚ÂÃ‚Â«ÃƒÂ¨Ã‚Â¨Ã‚Â­ÃƒÂ¥Ã‚Â®Ã…Â¡ */
+}
+
+.ho img {
+width: 230px;
+height: auto;
 }
 
 .to {
     position: relative;
-    left: 650px;
-    top: -360px;
+    left: 475px;
+    top: -320px;
     width:200px;
+}
+
+.to img {
+width: 150px;
+height: auto;
 }
 
 .kan {
     position: relative;
-    left:665px;
-    top: -370px;
+    left:490px;
+    top: -330px;
     width:200px;
+}
+
+.kan img {
+width: 120px;
+height: auto;
 }
 
 .tyu {
     position: relative;
-    left: 460px;
-    top: -610px;
+    left: 365px;
+    top: -520px;
     width:200px;
+}
+
+.tyu img {
+width: 130px;
+height: auto;
 }
 
 .kik {
     position: relative;
-    left: 370px;
-    top: -830px;
+    left:300px;
+    top: -665px;
     width:200px;
+}
+
+.kik img {
+width: 120px;
+height: auto;
 }
 
 .tyugo {
     position: relative;
-    left: 220px;
-    top: -1080px;
+    left: 200px;
+    top: -850px;
     width:130px;
+}
+
+.tyugo img {
+width: 110px;
+height: auto;
 }
 
 .siko {
     position: relative;
-    left: 230px;
-    top: -1080px;
+    left: 207px;
+    top: -855px;
     width:130px;
+}
+
+.siko img {
+width: 115px;
+height: auto;
 }
 
 .kyusy {
     position: relative;
-    left: 20px;
-    top: -1320px;
+    left: 70px;
+    top: -1030px;
     width:200px;
+}
+
+.kyusy img {
+width: 145px;
+height: auto;
 }
 
 .rink{
