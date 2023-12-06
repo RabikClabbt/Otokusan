@@ -65,6 +65,9 @@ if (isset($_POST['id'], $_POST['count'])) {
         // 未ログイン時、セッションに保存
         addToSessionCart($productId, $count);
     }
+
+    header('Location: ./');
+    exit();
 }
 
 // カート情報を取得
