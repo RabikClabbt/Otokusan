@@ -2,6 +2,8 @@
 require 'db-connect.php';
 session_start();
 
+$pdo = new PDO($connect, USER, PASS);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // POSTデータから商品IDを取得する
     $jsonData = json_decode(file_get_contents('php://input'), true);
