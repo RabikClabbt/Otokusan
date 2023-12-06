@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php require 'db-connect.php';?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,9 +17,15 @@ if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
     $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
-        echo '<img src="./image/',$row['imgPass'],'"height="260">';
-        echo '<p>商品名:', $row['productName'], '</p>';
-        echo '<p>価格:', $row['price'], '</p>';
+          echo '<p class="shohin">';
+          echo '<img src="./image/', $row['imgPass'], '" height="260">';
+          echo '<span class="product-info">';
+          echo '<span class="product-name">商品名: ', $row['productName'], '</span><br>';
+          echo '<span class="product-price">価格: ', $row['price'], '円','</span>';
+          echo '</span>';
+          echo '</p>';
+          echo '<i class="setumei">商品説明<br><br><span>こちらの商品は・・・</span></i>';
+
 
         echo '<form action="Cart.php" method="post">';
         echo '<p>個数:<select name="count">';
@@ -36,13 +43,11 @@ if (isset($_GET['productID'])) {
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
 
-        echo '<i class="setumei">商品説明</i><br><i>さっさと金払え</i>';
-
         echo '<table> <tr><th>商品概要</th></tr>';
         echo '<tr><td>商品名称　　' . $row['productName'] . '</td></tr>';
-        echo '<tr><td>原材料　　　？</td></tr>';
-        echo '<tr><td>賞味期限　　昨日</td></tr>';
-        echo '<tr><td>配送方法　　投げ配</td></tr>';
+        echo '<tr><td>原材料　　　a</td></tr>';
+        echo '<tr><td>賞味期限　　2024年12月31日</td></tr>';
+        echo '<tr><td>配送方法　　冷凍便</td></tr>';
         echo '</table>';
     }
 }
@@ -67,11 +72,11 @@ if (isset($_GET['productID'])) {
   </div>
   <div style="background:beige;  display:table-cell; text-align:right;">
     <h2>返品・交換について</h2>
-    <i class="mishiyou">未使用・未開封のみ可</i><br>
+    <i style="padding: 30px; font-size:x-large">未使用・未開封のみ可</i><br>
   </div>
 </div><form action="商品一覧URL" method="post">
 <input type="submit" value="商品一覧へ"
-style="padding: 10px; background-color: #f6e5cc; color: black; border: none; border-radius: 5px; cursor: pointer;">
+style="padding: 10px; font-size:x-large; background-color: #f6e5cc; color: black; border: none; border-radius: 5px; cursor: pointer;">
 </form>
 </body>
 </html>
