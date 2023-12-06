@@ -41,9 +41,9 @@ function addToSessionCart($productId, $count) {
     if (!isset($_SESSION['sessionCart'])) {
         $_SESSION['sessionCart'] = [];
     }
-    $quantity = $count;
+    $quantity = 0;
     if (isset($_SESSION['sessionCart'][$productId])) {
-        $count = $_SESSION['sessionCart'][$productId]['quantity'];
+        $quantity = $_SESSION['sessionCart'][$productId]['quantity'];
     }
     $_SESSION['sessionCart'][$productId] = [
         'quantity' => (($quantity + $count) < 10) ? $quantity + $count : 10
@@ -66,7 +66,7 @@ if (isset($_POST['id'], $_POST['count'])) {
         addToSessionCart($productId, $count);
     }
 
-    header('Location: ./');
+    header('Location: ./Cart.php');
     exit();
 }
 
