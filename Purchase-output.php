@@ -13,9 +13,9 @@
     require 'db-connect.php';
 
     //カート情報削除処理
-        if($_POST['$cartdelete']==1){
-            $sql= $pdo->prepare('delete * from cart where memberID=?');
-        $sql->execute([$_SESSION['customer']['memberID']];);
+        if($_POST['cartdelete']==1){
+            $sql= $pdo->prepare('delete from cart where memberID=?');
+        $sql->execute([$_SESSION['customer']['memberID']]);
         }
 
     /*

@@ -52,14 +52,14 @@
                                             JOIN product p ON c.productID = p.productID
                                             WHERE c.memberID = ?');
             $cartStatement->execute([$_SESSION['customer']['memberID']]);
-
-            foreach($cartStatement as $row){
+                foreach($cartStatement as $row){
                 $prefectureNo=$row['prefecturesNo'];
                 $price+=$row['price']*$row['quantity'];
                 $productName=$row['productName'];
                 echo $productName;
                 echo '個数：',$row['quantity'],'個';
             }
+
             $sql3=$pdo->prepare('select regionID from prefectures where prefecturesNo=?');
             $sql3->execute([$prefecturesNo]);
                 foreach($sql3 as $row){
@@ -79,27 +79,28 @@
             
             
             
-            $ploductID[]=[]; //プロダクトIDを保存しておくための変数
-            $quantity[]=[]; //商品数量を保存する変数
+            /*$ploductID=[]; //プロダクトIDを保存しておくための変数
+            $quantity=[]; //商品数量を保存する変数
             $sql4=$pdo->prepare('select productID from cart where memberID=?');
             $sql4->execute([$_SESSION['customer']['memberID']]);
                 foreach($sql4 as $row){
-                    $productID[]=$row['productID'];
-                    $quantity[]=$row['quantity'];
+                    $productID=$row['productID'];
+                    $quantity=$row['quantity'];
                 }
-            //$sql=$pdo->prepare('select * from product where productID');
-            $sql->execute($productID[]);
-            foreach($sql as $row){
+            $sql5=$pdo->prepare('select * from product where productID');
+            $sql5->execute($productID);
+            foreach($sql5 as $row){
                 $prefectureNo=$row['prefecturesNo'];
                 echo $row['productName'];
-                echo '個数：',$quantity[],'個';
+                echo '個数：',$quantity,'個';
                 echo '合計金額',$row['price']*$_POST['count']+$postage,'円';
-            }
+            }*/
+            
         }
         echo '<form method="post" action="Purchase-output.php">';
         echo '<input type="hidden" name="cartdelete" value="' ,$cartdelete, '">';
         echo '内容をご確認いただき、購入を確定してください。<br>';
-        echo '<a href="Purchase-output.php">購入を確定する</a>';
+        echo '<input type="submit" name="buy" value="購入確定" class="small-button">';
         echo '</form>';
     } else {
         echo '商品を購入するには、ログインしてください。';
