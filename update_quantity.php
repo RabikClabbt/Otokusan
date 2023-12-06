@@ -2,6 +2,8 @@
 require 'db-connect.php';
 session_start();
 
+$pdo = new PDO($connect, USER, PASS);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 受け取ったデータを取得
     $jsonData = json_decode(file_get_contents('php://input'), true);

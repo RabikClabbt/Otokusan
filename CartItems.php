@@ -2,6 +2,8 @@
 require 'db-connect.php';
 session_start();
 
+$pdo = new PDO($connect, USER, PASS);
+
 function getCartItems($pdo, $userId) {
     if ($userId > 0) {
         // データベースからカートアイテムを取得する

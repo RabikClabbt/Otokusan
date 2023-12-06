@@ -1,8 +1,9 @@
 <?php
 require 'db-connect.php';
 session_start();
+$pdo = new PDO($connect, USER, PASS);
 
-// Initialize $userId with a default value
+// デフォルト値で $userId を初期化する
 $userId = 0;
 
 // カートに商品を追加する関数

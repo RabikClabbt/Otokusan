@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./css/Header.css">
-<header id="header">
+<div id="header">
     <div class="left">
         <div class="logo">
             <a href="ここにトップ画面へのリンク">
@@ -25,4 +25,4 @@
             echo (isset($_SESSION['custamer'])) ? './Account-input.php' : './Login-input.php';
             ?>"><img src="./icon/Account.png" width="30" height="30" alt="アカウント"></a>
         </div>
-</header>
+</div>
