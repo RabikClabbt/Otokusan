@@ -21,6 +21,7 @@ foreach($sql as $row){
 }
 if(isset($_SESSION['customer'])){
     echo 'いらっしゃいませ、',$_SESSION['customer']['memberName'],'さん。';
+    require './UpdateCartOnLogin.php';
 }else {
     echo 'ログイン名またはパスワードが違います。';
     echo '<a href="Login-input.php">戻る</a>';
