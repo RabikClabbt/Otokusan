@@ -20,6 +20,29 @@ img{
   display: block;
   margin:auto;
 }
+.shohin {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* コンテンツを水平方向に中央に配置 */
+}
+
+.shohin img {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 80px;
+  margin-left: -100px;/* 画像を左に5px寄せる */
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name,
+.product-price {
+  display: block;
+  font-size:x-large; 
+}
 
 i {
   display: block;
@@ -28,8 +51,17 @@ i {
   margin-top: 10px;
 }
 
-.setumei{
+.setumei {
   font-weight: bold;
+  border: 1px solid;
+}
+
+.setumei span {
+  font-weight: normal;
+}
+
+.setumei::after {
+  content: '\00a0'; /* "商品説明"の後に改行しないスペースを追加 */
 }
 
 p{
@@ -123,11 +155,6 @@ h2 {
   flex-grow: 1;
   text-align: center;
 }
-
-.mishiyou{
-  padding: 30px;
-}
-
 
 
 /* ページ遷移リンクのスタイル */
