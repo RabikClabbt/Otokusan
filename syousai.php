@@ -9,14 +9,14 @@
 <body>
 <?php require 'Header.php';?>
 <?php require 'Sidebar.php'; ?>
-<link rel="stylesheet" type="text/css" href="Syousai.css">
+<link rel="stylesheet" type="text/css" href="syousai.css">
     <?php
 $pdo = new PDO($connect, USER, PASS);
 if (isset($_GET['productID'])) {
     $sql = $pdo->prepare('SELECT * FROM product WHERE productID = ?');
     $sql->execute([$_GET['productID']]);
         foreach ($sql as $row) {
-        echo '<img src="./image/',$row['imgPass'],'"height="130">';
+        echo '<img src="./image/',$row['imgPass'],'"height="260">';
         echo '<p>商品名:', $row['productName'], '</p>';
         echo '<p>価格:', $row['price'], '</p>';
 
@@ -50,15 +50,15 @@ if (isset($_GET['productID'])) {
 ?>
 <div style="background:lavender;  display:table;  width:100%;">
   <div style="background:lightbrown; display:table-cell;">
-    <h2>お支払いについて</h2>
+    <h2 style="padding-left: 50px;">お支払いについて</h2>
     <div class="payment-options">
       <div>
         <h2 class="online">・オンライン決済</h2>
-        <i class="kureka">クレジットカード</i><br>
+        <i style="padding: 29px; font-size:x-large">クレジットカード</i><br>
       </div>
       <div>
         <h2>・口座振り込み</h2><br>       
-        <i>対応店舗</i><br>
+        <i style="font-size:x-large">対応店舗</i><br>
       </div>
       <div>
         <h2 class="daibiki">・代金引換</h2><br>
