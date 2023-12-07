@@ -18,11 +18,12 @@
             </form>
         </div>
     </div>
-        <div class="right">
-            <a href="Search.php"><img src="./icon/Search.png" width="30" height="30" alt="検索"></a>
-            <a href="Cart.php"><img src="./icon/Cart.png" width="30" height="30" alt="カート"></a>
-            <a href="<?php
-            echo (isset($_SESSION['custamer'])) ? './Account-input.php' : './Login-input.php';
-            ?>"><img src="./icon/Account.png" width="30" height="30" alt="アカウント"></a>
-        </div>
+    <div class="right">
+        <a href="Search.php"><img src="./icon/Search.png" width="30" height="30" alt="検索"></a>
+        <a href="Cart.php"><img src="./icon/Cart.png" width="30" height="30" alt="カート"></a>
+        <a href="<?php
+        echo (isset($_SESSION['custamer'])) ? './Account-input.php' : './Login-input.php';
+        ?>"><img src="./icon/Account.png" width="30" height="30" alt="アカウント"></a>
+    </div>
+    <hr>
 </div>

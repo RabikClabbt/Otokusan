@@ -1,19 +1,14 @@
 /* ヘッダースタイル */
-header {
+.header {
     width: 100%;
     box-sizing: border-box;
-    background-color: #f8f8f8;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
+    background-color: #ede4cd;
+    padding: 20px 20px 10px; /* 調整済みパッド */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 同じ幅の2列 */
+    justify-content: space-between; /* 左右のセクションを分離する機能を追加 */
     align-items: center;
     z-index: 10; /* ヘッダーの z-index を設定 */
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .left {
@@ -45,6 +40,8 @@ header {
 .search-container {
     display: flex;
     align-items: center;
+    position: relative; /* 追加された位置：相対 */
+    top: 10px;
 }
 
 .search-input {
@@ -54,12 +51,15 @@ header {
 }
 
 .search-button {
-    margin-left: -37px; /* ボタンを入力フィールド内に移動させる */
+    height: 30px;
+    margin-top: auto;
+    margin-left: -32px; /* ボタンを入力フィールド内に移動させる */
     z-index: 1; /* ボタンを手前に表示するために必要な場合に追加してください */
-    height: 35px;
     background: none; /* 背景をなくす */
     border: none; /* 枠をなくす */
     padding: 0; /* パディングをリセット */
+    position: absolute; /* 追加された位置：絶対 */
+    top: 4px; /* ボタンを10px下に移動させる */
 }
 
 .search input {
@@ -74,6 +74,9 @@ header {
     align-items: center;
     float: right;
     z-index: 10; /* 右側の要素にも z-index を設定 */
+    position: relative; /* 追加された位置：相対 */
+    top: -40px;
+    right: 15px;
 }
 
 .right a,
@@ -91,12 +94,10 @@ header {
     cursor: pointer;
 }
 
-.left, .right {
-    width: 50%;
-    box-sizing: border-box;
-}
-
-.grumble{
-    /* I would like to see Kota work a little harder as a leader. */
-    /* I hope sumi is not too proud. */
+hr {
+    border-color: #752100;
+    border-width: 0.5px;
+    width: 100%;
+    position: relative;
+    top: -20px;
 }
