@@ -96,7 +96,7 @@ try {
 
             echo '<div class="rproduct">';
             echo '<div class="rproduct-name">' . $row['prefecturesName'] . '</div>';
-            echo '<div class="rproduct img">';
+            echo '<div class="rproduct-img">';
             echo '<a href="syousai.php?productID='.$row['productID'].'">';
             echo '<img src="./otokusanImage/' . $row['imgPass'] . '" alt="' . $row['productName'] . '">';
             echo '</a></div>';

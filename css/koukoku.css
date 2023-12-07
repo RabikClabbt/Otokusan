@@ -1,0 +1,116 @@
+/*advertiseのCSS*/
+.slide-pic {
+  max-width: 820px;
+  height: 400px;
+  margin: auto;
+}
+
+/*画像配置*/
+.slideshow {
+  max-width: 100%;
+  height: 100%;
+  background-image: url('./ranking.img/koukokusiroikoibito.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  transition: background-image 1s ease-in;
+}
+
+/*文字*/
+.disc {
+  margin: auto;
+  text-align: center;
+  font-size: 3em;
+  color: #ffffff;
+  font-weight: 800;
+  padding-top: 5%;
+}
+
+/*>*/
+.next {
+  float: right;
+  top: 0px;
+  right: 50px;
+}
+
+/*<*/
+.back {
+  float: left;
+  bottom: 0px;
+  left: 30px;
+}
+
+/*矢印のデザイン*/
+.arrow {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 16px;
+  color: #000;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.arrow::before,
+.arrow::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  content: "";
+  vertical-align: middle;
+}
+
+.next::before {
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  border-top: 5px solid rgb(255, 255, 255);
+  border-right: 5px solid rgb(255, 255, 255);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.back::before {
+  left: 0px;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid rgb(255, 255, 255);
+  border-left: 5px solid rgb(255, 255, 255);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+@media screen and (max-width: 768px) {
+  .slide-pic {
+    height: 250px;
+  }
+  .disc {
+    padding-top: 5%;
+  }
+  /*>*/
+  .next {
+    top: 30px;
+  }
+  /*<*/
+  .back {
+    top: 30px;
+  }
+}
+/*advertiseのCSS終わり*/
+/*headerのCSS*/
+.form-control {
+  text-align: right;
+}
+
+.input-group {
+  border: solid #000000;
+  text-align: right;
+  margin-top: 7px;
+  border-radius: 5px;
+}
+
+body {
+  background-image: url('../../image/stone.avif');
+}
