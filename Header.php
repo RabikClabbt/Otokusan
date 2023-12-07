@@ -2,12 +2,12 @@
 <div id="header">
     <div class="left">
         <div class="logo">
-            <a href="ここにトップ画面へのリンク">
+            <a href="./TOP.php">
                 <img src="./log/TopLog.png" alt="ロゴ">
             </a>
         </div>
         <div class="search-container">
-            <form action="Result.php" method="post">
+            <form action="./Result.php" method="post">
                 <input type="text" autocomplete="off" aria-autocomplete="list" aria-controls="react-autowhatever-1" class="search-input" placeholder="キーワードを入力" name="sname" value="" spellcheck="false" data-ms-editor="true">
                 <input type="hidden" name="region" value="0">
                 <input type="hidden" name="category" value="0">
