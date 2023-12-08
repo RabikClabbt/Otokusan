@@ -25,5 +25,5 @@
         echo (isset($_SESSION['custamer'])) ? './Account-input.php' : './Login-input.php';
         ?>"><img src="./icon/Account.png" width="30" height="30" alt="アカウント"></a>
     </div>
-    <hr>
+    <hr class="header-hr">
 </div>
