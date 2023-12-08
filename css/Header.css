@@ -94,7 +94,7 @@
     cursor: pointer;
 }
 
-hr {
+.header-hr {
     border-color: #752100;
     border-width: 0.5px;
     width: 100%;
