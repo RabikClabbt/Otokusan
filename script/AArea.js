@@ -2,14 +2,14 @@ window.onload = function () {
 
   // 画像を配列に格納
   var images = [
-    './ranking.img/koukokusiroikoibito.jpg',
-    './ranking.img/koukokuaomarizyamu.jpg',
-    './ranking.img/kokukokunatto.jpg',
-    './ranking.img/kokukokusasadanogo.jpg',
-    './ranking.img/kokukokusekimoti.jpg',
-    './ranking.img/kokukokudango.jpg',
-    './ranking.img/kokukokumanmaro-za.jpg',
-    './ranking.img/kokukokuamaou.jpg'
+    './ranking.img/siroik.png',
+    './ranking.img/rigozyamuk.jpg',
+    './ranking.img/nattok.jpg',
+    './ranking.img/sasak.png',
+    './ranking.img/sekik.png',
+    './ranking.img/kouendangok.png',
+    './ranking.img/manmak.png',
+    './ranking.img/amaouk.jpg'
   ];
  // リンク先配列
  var link = [
@@ -23,48 +23,50 @@ window.onload = function () {
   'syousai.php?productID=48',
 
  ];
-  // HTMLから要素を取得
-  var target = document.getElementById('slide');
-  var right = document.getElementById('right');
-  var left = document.getElementById('left');
+ 
+ // HTMLから要素を取得
+ var target = document.getElementById('slide');
+ var right = document.getElementById('right');
+ var left = document.getElementById('left');
 
-  // クリックしたときに変わるようにカウント変数
-  var count = 0;
+ // クリックしたときに変わるようにカウント変数
+ var count = 0;
 
-  // 画像を変更する関数
-  function change() {
-    target.style.backgroundImage = 'url(' + images[count] + ')';
-  }
-
-  // 画像をクリックしたら遷移
-function detail(){
-  window.location.href=link[count];
+ // 画像を変更する関数
+function change() {
+  target.style.backgroundImage = 'url("' + images[count] + '")';
 }
 
-  // >をクリックしたらcountを+1する
-  function goNext() {
-    if (count == 7) {
-      count = 0;
-    } else {
-      count++;
-    }
-    change();
-  }
 
-  // <をクリックしたらcountを-1する
-  function goBack() {
-    if (count == 0) {
-      count = 7;
-    } else {
-      count--;
-    }
-    change();
-  }
+ // 画像をクリックしたら遷移
+function detail(){
+ window.location.href=link[count];
+}
 
-  // クリックイベント
-  //right.addEventListener('click', goNext, false);
-  //left.addEventListener('click', goBack, false);
-  target.addEventListener('click', detail, false);
+ // >をクリックしたらcountを+1する
+ function goNext() {
+   if (count == 7) {
+     count = 0;
+   } else {
+     count++;
+   }
+   change();
+ }
+
+ // <をクリックしたらcountを-1する
+ function goBack() {
+   if (count == 0) {
+     count = 7;
+   } else {
+     count--;
+   }
+   change();
+ }
+
+ // クリックイベント
+ //right.addEventListener('click', goNext, false);
+ //left.addEventListener('click', goBack, false);
+ target.addEventListener('click', detail, false);
 
   // 3秒ごとに画像を変更する
   setInterval(function () {
