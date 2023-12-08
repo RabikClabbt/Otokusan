@@ -74,49 +74,49 @@
             echo '</div>';
             echo '<div class="ho">';
                 /*hrefの中に北海道リンク先を張ってください*/
-                echo '<a href="area.php?area=1">';
+                echo '<a href="AArea.php?area=1">';
                 echo '<img src="gahaku/Hokkaido.png"></a>';
                 /*echo '<input type="image" name="ho" src="image/Hokkaido.png"  alt="ho" value="ho">';*/
             echo '</div>';
             echo '<div class="to">';
                 /*hrefの中に東北地方リンク先を張ってください*/
-                echo '<a href="area.php?area=2">';
+                echo '<a href="AArea.php?area=2">';
                 echo '<img src="gahaku/tohoku.png"></a>';
                 /*echo '<input type="image" name="to" src="image/tohoku.png"  alt="to" value="to">';*/
             echo '</div>';
             echo '<div class="kan">';
                 /*hrefの中に関東地方リンク先を張ってください*/
-                echo '<a href="area.php?area=3">';
+                echo '<a href="AArea.php?area=3">';
                 echo '<img src="gahaku/kanto.png"></a>';
                 /*echo '<input type="image" name="kan" src="image/kanto.png"  alt="kan" value="kan">';*/
             echo '</div>';
             echo '<div class="tyu">';
                 /*hrefの中に中部地方リンク先を張ってください*/
-                echo '<a href="area.php?area=4">';
+                echo '<a href="AArea.php?area=4">';
                 echo '<img src="gahaku/tyubu.png"></a>';
                 /*echo '<input type="image" name="tyu" src="image/tyubu.png"  alt="tyu" value="tyu">';*/
             echo '</div>';
             echo '<div class="kik">';
                 /*hrefの中に近畿地方リンク先を張ってください*/
-                echo '<a href="area.php?area=5">';
+                echo '<a href="AArea.php?area=5">';
                 echo '<img src="gahaku/kinki.png"></a>';
                 /*echo '<input type="image" name="kik" src="image/kinki.png"  alt="kik" value="kik">';*/
             echo '</div>';
             echo '<div class="tyugo">';
                 /*hrefの中に中国地方リンク先を張ってください*/
-                echo '<a href="area.php?area=6">';
+                echo '<a href="AArea.php?area=6">';
                 echo '<img src="gahaku/tyugoku.png"></a>';
                 /*echo '<input type="image" name="tyugo" src="image/tyugoku.png"  alt="tyugo" value="tyugo">';*/
             echo '</div>';
             echo '<div class="siko">';
                 /*hrefの中に四国地方リンク先を張ってください*/
-                echo '<a href="area.php?area=7">';
+                echo '<a href="AArea.php?area=7">';
                 echo '<img src="gahaku/shikoku.png"></a>';
                 /*echo '<input type="image" name="siko" src="image/shikoku.png"  alt="siko" value="siko">';*/
             echo '</div>';
             echo '<div class="kyusy">';
                 /*hrefの中に九州地方リンク先を張ってください*/
-                echo '<a href="area.php?area=8">';
+                echo '<a href="AArea.php?area=8">';
                 echo '<img src="gahaku/kyusyu.png"></a>';
                 /*echo '<input type="image" name="kyusy" src="image/kyusyu.png"  alt="kyusy" value="kyusy">';*/
             echo '</div>';
