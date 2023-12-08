@@ -10,16 +10,22 @@ $connect = 'mysql:host='. SERVER . ';dbname='. DBNAME . ';charset=utf8';
 ?>
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/koukoku.css">
     <link rel="stylesheet" href="./css/Area.css">
     <script src="./script/AArea.js"></script> 
+</head>
+<body>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>エリアの商品ページ</title>
-<?php require 'advertise.php';?>
-    <h1>ランキング👑</h1>
+
+    <div class ="slide-pic">
+  <div id ="slide" class="slideshow">
+    <p class="disc"></p> 
+  </div>
+</div>
 
 <?php
 
@@ -28,8 +34,32 @@ try {
     $pdo = new PDO($connect, USER, PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    //地方表示
+    echo '<div class="region">';
+    $regionsql = $pdo->prepare ("select regionName from region where regionID = ?");
+    $regionsql -> execute([$area]);
+    foreach($regionsql as $row){
+        echo '<h1>'.$row['regionName'].'</h1>';
+    }
+    echo '</div>';
+    echo'<h1>ランキング👑</h1>';
+
+    if($area == 1){
     $sql = "SELECT p.*, pr.prefecturesName FROM product p  JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo  WHERE pr.regionID = ?
-        LIMIT 3";
+            LIMIT 3";
+    }else{
+    $sql = "SELECT p.*, pr.prefecturesName
+    FROM product p
+    JOIN prefectures pr ON p.prefecturesNo = pr.prefecturesNo
+    WHERE pr.regionID = ?
+      AND p.productID = (
+        SELECT MIN(productID)
+        FROM product
+        WHERE prefecturesNo = pr.prefecturesNo
+      )
+    LIMIT 3;";
+    };
+    
 
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$area]);
@@ -193,7 +223,7 @@ echo '</div></a>';
 echo '</div>';
 ?>
 
-</head>
+</body>
 
 
 </html>

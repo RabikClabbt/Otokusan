@@ -1,3 +1,7 @@
+.region {
+    text-align: center;
+}
+
 .rproduct {
     display: flex;
     width:100%;
