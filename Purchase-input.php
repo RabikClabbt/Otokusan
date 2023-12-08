@@ -3,6 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/Purchase.css">
 <title>minamis programs</title>
 </head>
 <body>
@@ -20,12 +21,15 @@
         $sql2=$pdo->prepare('select regionName from region where regionID=?');
         $sql2->execute([$_SESSION['customer']['regionID']]);
         foreach($sql2 as $row){
-            echo $row['regionName'];
+            echo $row['regionName'],'<br>';
         }
 
-        if(isset($_POST['productID'])){ //廣永ファイル（商品詳細）から情報が送られた場合
-            $sql=$pdo->prepare('select * from product where productID');
-            $sql->execute($_POST['productID']);
+        
+        
+        if(isset($_POST['productID'])){ 
+             //廣永ファイル（商品詳細）から情報が送られた場合
+            $sql=$pdo->prepare('select * from product where productID=?');
+            $sql->execute([$_POST['productID']]);
             foreach($sql as $row){
                 $prefectureNo=$row['prefecturesNo'];
                 $price=$row['price'];
@@ -41,7 +45,7 @@
 
             echo $productName;
             echo '個数：',$_POST['count'],'個';
-            echo '合計金額',$price*$_POST['count']+$postage,'円';
+            echo '<br>合計金額　',$price*$_POST['count']+$postage,'円';
             if($postage!=0){
                 echo '（内.送料',$postage,'円）';
             }
@@ -69,7 +73,7 @@
                 }
 
             
-            echo '合計金額',$price+$postage,'円';
+            echo '<br>合計金額　',$price+$postage,'円';
             if($postage!=0){
                 echo '（内.送料',$postage,'円）';
             }
