@@ -38,6 +38,7 @@
                 $prefecturesNo=$row['prefecturesNo'];
                 $price=$row['price'];
                 $productName=$row['productName'];
+                $imgPass=$row['imgPass'];
             }
             $sql3=$pdo->prepare('select regionID from prefectures where prefecturesNo=?');
             $sql3->execute([$prefecturesNo]);
@@ -48,7 +49,8 @@
                 }
 
             echo '＜カート情報＞<br>';
-            echo $productName;
+            echo '<p><img src="otokusanImage/',$imgPass,'" alt="image"></p>';
+            echo $productName,'<br>';
             echo '個数：',$_POST['count'],'個';
             echo '<br>合計金額　',$price*$_POST['count']+$postage,'円';
             if($postage!=0){
@@ -59,7 +61,7 @@
         }
         else{
             $cartdelete=1;
-            echo '＜カート情報＞<br>';
+            echo '＜商品情報＞<br>';
             $cartStatement = $pdo->prepare('SELECT c.productID, p.productName, p.price, p.imgPass, p.prefecturesNo, c.quantity FROM cart c
                                             JOIN product p ON c.productID = p.productID
                                             WHERE c.memberID = ?');
@@ -68,7 +70,8 @@
                 $prefecturesNo=$row['prefecturesNo'];
                 $price+=$row['price']*$row['quantity'];
                 $productName=$row['productName'];
-                echo $productName;
+                echo '<p><img src="otokusanImage/',$row['imgPass'],'" alt="image"></p>';
+                echo $productName,'<br>';
                 echo '個数：',$row['quantity'],'個';
             }
 
@@ -111,11 +114,13 @@
             }*/
             
         }
-        echo '<form method="post" action="Purchase-output.php">';
-        echo '<input type="hidden" name="cartdelete" value="' ,$cartdelete, '">';
-        echo '内容をご確認いただき、購入を確定してください。<br>';
-        echo '<input type="submit" name="buy" value="購入確定" class="small-button">';
-        echo '</form>';
+        echo '<div class="purchase-fs">';
+            echo '<form method="post" action="Purchase-output.php">';
+            echo '<input type="hidden" name="cartdelete" value="' ,$cartdelete, '">';
+            echo '内容をご確認いただき、購入を確定してください。<br>';
+            echo '<input type="submit" name="buy" value="購入確定" class="small-button">';
+            echo '</form>';
+        echo '</div>';
     } else {
         echo '商品を購入するには、ログインしてください。';
         echo '<a href="Login-input.php">ログイン画面へ</a>';
