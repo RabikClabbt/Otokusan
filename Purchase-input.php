@@ -15,7 +15,10 @@
     $price=0; //価格変数
     $productName=''; //商品ネーム変数
     $cartdelete=0; //購入後にカートの情報を削除するか判断する
+
+    echo '<div class="container">';
     if (isset($_SESSION['customer'])) {
+        echo '＜お客様情報＞<br>';
         echo '氏名：', $_SESSION['customer']['memberName'] ,'<br>';
         echo '所在地域：';
         $sql2=$pdo->prepare('select regionName from region where regionID=?');
@@ -23,6 +26,7 @@
         foreach($sql2 as $row){
             echo $row['regionName'],'<br>';
         }
+        echo '<hr>';
 
         
         
@@ -31,7 +35,7 @@
             $sql=$pdo->prepare('select * from product where productID=?');
             $sql->execute([$_POST['productID']]);
             foreach($sql as $row){
-                $prefectureNo=$row['prefecturesNo'];
+                $prefecturesNo=$row['prefecturesNo'];
                 $price=$row['price'];
                 $productName=$row['productName'];
             }
@@ -43,21 +47,25 @@
                     }
                 }
 
+            echo '＜カート情報＞<br>';
             echo $productName;
             echo '個数：',$_POST['count'],'個';
             echo '<br>合計金額　',$price*$_POST['count']+$postage,'円';
             if($postage!=0){
                 echo '（内.送料',$postage,'円）';
+            }else{
+                echo '（送料無料！）';
             }
         }
         else{
             $cartdelete=1;
+            echo '＜カート情報＞<br>';
             $cartStatement = $pdo->prepare('SELECT c.productID, p.productName, p.price, p.imgPass, p.prefecturesNo, c.quantity FROM cart c
                                             JOIN product p ON c.productID = p.productID
                                             WHERE c.memberID = ?');
             $cartStatement->execute([$_SESSION['customer']['memberID']]);
                 foreach($cartStatement as $row){
-                $prefectureNo=$row['prefecturesNo'];
+                $prefecturesNo=$row['prefecturesNo'];
                 $price+=$row['price']*$row['quantity'];
                 $productName=$row['productName'];
                 echo $productName;
@@ -76,6 +84,8 @@
             echo '<br>合計金額　',$price+$postage,'円';
             if($postage!=0){
                 echo '（内.送料',$postage,'円）';
+            }else{
+                echo '（送料無料！）';
             }
 
 
@@ -110,6 +120,7 @@
         echo '商品を購入するには、ログインしてください。';
         echo '<a href="Login-input.php">ログイン画面へ</a>';
     }
+    echo '</div>';
 ?>
 </body>
 </html>

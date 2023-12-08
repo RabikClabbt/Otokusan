@@ -13,12 +13,13 @@ header {
 }
 
 .container {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
 }
 
 form {
     margin-top: 20px;
+    text-align: right;
 }
 
 input.small-button {
