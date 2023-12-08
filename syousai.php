@@ -21,7 +21,7 @@ if (isset($_GET['productID'])) {
         echo '<p>価格:', $row['price'], '</p>';
 
         echo '<form action="Cart.php" method="post">';
-        echo '<p>個数:<select name="count">';
+        echo '<p>個数:<select name="count" id="category_select" onchange="changed()">';
         for ($i = 1; $i < 11; $i++) {
             echo '<option value="' , $i , '">' , $i , '</option>';
         }
@@ -33,6 +33,7 @@ if (isset($_GET['productID'])) {
 
         echo '<form action="Purchase-input.php" method="post">';
         echo '<input type="hidden" name="productID" value="' . $row['productID'] . '">';
+        echo '<input type="hidden" name="count" id="category_hidden" value=1>';
         echo '<p><input type="submit" value="購入画面へ"></p>';
         echo '</form>';
 
@@ -73,5 +74,17 @@ if (isset($_GET['productID'])) {
 <input type="submit" value="商品一覧へ"
 style="padding: 10px; background-color: #f6e5cc; color: black; border: none; border-radius: 5px; cursor: pointer;">
 </form>
+  <script>
+    function changed(){
+    var category_select =document.getElementById("category_select");
+    var category_hidden =document.getElementById("category_hidden");
+
+    var idx = category_select.selectedIndex;
+    var num = category_select.options[idx].value;
+
+    category_hidden.value=num;
+  }
+  </script>
+
 </body>
 </html>
