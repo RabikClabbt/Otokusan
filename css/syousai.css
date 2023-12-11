@@ -1,0 +1,218 @@
+/* ページ全体のスタイル */
+.body-style {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #fafbf5;
+}
+
+/* 商品情報のスタイル */
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Updated to space around */
+  flex-direction: row; /* Updated to row */
+}
+
+.product img {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.product-img {
+  display: block;
+  margin: auto;
+}
+
+.product-right {
+  margin-right: 20%;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name,
+.product-price {
+  display: block;
+  font-size: x-large;
+}
+
+.select-quantity {
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.select-quantity form {
+  margin: 0 10px;
+}
+
+/* コントロールリストのスタイル */
+.control-list {
+  display: flex;
+  justify-content: space-around; /* Updated to space around */
+  align-items: center;
+  background-color: #eee9e6;
+}
+
+.control-list form {
+  flex: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.control-list form[action="商品一覧URL"] {
+  display: block;
+  margin-top: 20px;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  text-decoration: underline;
+}
+
+.cartAdd {
+  display: flex;
+  align-items: center;
+}
+
+.cartAdd select,
+.cartAdd input[type="submit"] {
+  margin-right: 10px;
+}
+
+
+/* 数量選択 */
+.quantity-change {
+  display: inline-block;
+  padding: 8px; /* セレクトボックスの内部余白 */
+  font-size: 16px; /* フォントサイズ */
+  border: 1px solid #ccc; /* 境界線のスタイル */
+  border-radius: 5px; /* 角丸 */
+}
+
+.body-style a {
+  display: block;
+  text-align: center;
+  background-color: #f8f8f8;
+  color: #fff;
+  padding: 20px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.body-style a:hover {
+  background-color: #f8f8f8;
+}
+
+.body-style input[type="submit"] {
+  background-color: #b28c6e;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.body-style input[type="submit"]:hover {
+  background-color: #6f4b3e;
+}
+
+/* 商品説明スタイル */
+.body-style table {
+  width: 40%;
+  border-collapse: collapse;
+  text-align: center;
+  border: 1px solid;
+  margin-top: 20px;
+}
+
+.body-style th,
+td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.body-style th {
+  background-color: #f2f2f2;
+}
+
+/* 商品情報の詳細 */
+.body-style h2 {
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* その他記載事項 */
+.other {
+  background: #f6e5cc;
+  display: table;
+  width: 100%;
+}
+
+.other-container {
+  background: #eedcb3;
+  display: table-cell;
+}
+
+/* お支払いについて */
+.payment {
+  padding-left: 50px;
+}
+
+.payment-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment-options div {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* オンライン決済 */
+.online-payment i {
+  padding: 29px;
+  font-size: x-large;
+}
+
+/* 口座振り込み */
+.bank-transfer i {
+  padding: 29px;
+  font-size: x-large;
+}
+
+/* 返品・交換について */
+.return-description {
+  background: beige;
+  display: table-cell;
+  text-align: right;
+}
+
+.return-description i {
+  padding: 30px;
+  font-size: x-large;
+}
+
+/* 商品一覧に戻る */
+.back {
+  padding: 10px;
+  font-size: x-large;
+  background-color: #f6e5cc;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

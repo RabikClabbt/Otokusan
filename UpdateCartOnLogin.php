@@ -1,9 +1,4 @@
 <?php
-require 'db-connect.php';
-session_start();
-
-$pdo = new PDO($connect, USER, PASS);
-
 // データベースにカートアイテムを追加または更新する関数
 function addToCart($productId, $quantity, $userId, $pdo) {
     // カートに商品がすでにあるかどうかをチェックする
