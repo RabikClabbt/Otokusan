@@ -73,20 +73,20 @@
           <div class="payment-options">
             <div class="online-payment">
               <h2>・オンライン決済</h2>
-              <i>クレジットカード</i><br>
+              <i>クレジットカード</i>
             </div>
             <div class="bank-transfer">
-              <h2>・口座振り込み</h2><br>       
-              <i>対応店舗</i><br>
+              <h2>・口座振り込み</h2>      
+              <i>対応店舗</i>
             </div>
             <div class="cash-delivery">
-              <h2>・代金引換</h2><br>
+              <h2>・代金引換</h2>
             </div>
           </div>
         </div>
         <div class="return-description">
           <h2>返品・交換について</h2>
-          <i>未使用・未開封のみ可</i><br>
+          <i>未使用・未開封のみ可</i>
         </div>
       </div>
       <form action="商品一覧URL" method="post">
